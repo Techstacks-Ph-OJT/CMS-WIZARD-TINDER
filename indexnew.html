@@ -1,0 +1,2188 @@
+<style>
+.banner{
+  justify-content: space-between;
+  padding: 40px 2.8%!important;
+  gap: 15px;
+}
+.banner-body{
+  padding: 0px;
+}
+
+.banner-history-picture{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 8px;
+}
+
+.banner-image-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 15px;
+}
+
+.banner-picture-frame{
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  gap: 10px;
+  width: 100px;
+  height: 100px;
+  background: #FAFAFA;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.banner-picture{
+  width: 84px;
+  height: 84px;
+}
+
+.banner-picture-frame2{
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  gap: 10px;
+  width: 60px;
+  height: 60px;
+  background: #FAFAFA;
+  border-radius: 10px;
+}
+
+.banner-picture2{
+  width: 44px;
+  height: 44px;
+}
+
+.history-button{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 12px 24px;
+  gap: 8px;
+  background: #F5D9CC;
+  border-radius: 24px;
+  border: none;
+}
+
+.banner-text{
+  margin: 0;
+}
+
+.history-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999999999999;
+}
+
+.history-modal {
+  width: 928px;
+  max-width: 928px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px;
+  background: #FFFFFF;
+  border-radius: 10px;
+}
+
+.modal-title-close{
+  display: flex; 
+  justify-content: space-between; 
+  align-items: flex-start; 
+  width: 100%;
+  padding-bottom: 24px;
+}
+
+.modal-title-close h2{
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 40px;
+  color: #262626;
+}
+
+.modal-button{
+  /*padding: 20px 24px; */
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 100%; 
+  background-color: #F5F5F5; 
+  gap: 10px; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  border: none;
+}
+
+.modal-item-list{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  width: 100%;
+  height: 444px;
+  overflow-y: scroll;
+}
+
+.modal-item-name{
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 24px;
+  width:100%;
+  height: 44px;
+  background: #FFFFFF;
+  border-bottom: 1px solid #E6E6E6;
+}
+
+.item-name{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 24px;
+  gap: 10px;
+  flex: 1;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #989898;
+}
+
+.modal-item-container{
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 0px;
+  width: 100%;
+  height: auto;
+  background: #FFFFFF;
+  border-bottom: 1px solid #E4E4E4;
+}
+
+.modal-items{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 3.2;
+}
+
+.modal-item{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 24px;
+  gap: 10px;
+  height: auto;
+}
+
+.modal-item p{
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 24px;
+  color: #000000;
+}
+
+.modal-item2{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  gap: 10px;
+  height: auto;
+}
+
+.modal-item3{
+  justify-content: flex-end;
+  flex: 0.8;
+}
+
+.history-link{
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 24px;
+  color: #666666;
+  transition: 0.3s;
+}
+
+.history-link:hover{
+  text-decoration: underline;
+  color: #666666;
+  text-decoration-color: #989898;
+}
+
+/* Hide scrollbar when modal is open */
+.history-modal-open {
+  overflow: hidden;
+}
+
+.banner-picture-frame.selected {
+  border: 3px solid #9EC6CF;
+}
+
+@media (max-width: 1050px){
+  .banner{
+    padding: 40px 2%!important;
+  }
+}
+
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- fontawesome css --><script src="https://kit.fontawesome.com/6e565221c4.js" crossorigin="anonymous"></script>
+<div class="container no-padding-mobile">
+  <div class="banner banner-no-img p-0 mb-md-4 mb-3 banner_kaarten">
+    <div class="banner-body display-md-block custom_banner">
+      <h1 style="margin: 0; display: inherit;">
+        <font style="vertical-align: inherit;" class="font-style">Kaartenzoeker</font>
+        <!-- <font style="vertical-align: inherit;">
+          <font style="vertical-align: inherit;">
+            <font style="vertical-align: inherit;">
+              <font style="vertical-align: inherit;" class="font-style">Kaartenzoeker</font>
+            </font>
+          </font>
+        </font> -->
+      </h1>
+      <p class="banner-text banner-text-content">
+        <font style="vertical-align: inherit;">
+          <font style="vertical-align: inherit;">
+            <font style="vertical-align: inherit;">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">Binnen enkele klikken heb jij een selectie kaarten</font>
+                </font><br />
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">die helemaal passen bij jou!</font>
+                </font>
+              </font>
+            </font>
+          </font>
+        </font>
+      </p>
+    </div>
+    <div class="banner-body banner-body-history">
+      <div class="banner-history-picture" style="display: none;">
+        <p class="banner-text">Gekozen ontwerpen</p>
+        <div class="banner-image-container">
+          <div class="banner-picture-frame">
+            <img class="banner-picture" src="https://s3-alpha-sig.figma.com/img/eede/feab/5d701797bd2e808d45029cfff936ffad?Expires=1685923200&Signature=pdMJiauHqJZvD7D2LRne2InMqRTSc6X7JRAxfezGnYx7~o3~vbP0cloDXsrU2isFlT7784XFyEUsCuEjNso7sfzlGMuzc8v9K-Pivpc--x9vhO9Hgqj0epK1DrcLh0AayejNfWE97HbHeUkpW0VTQ3TEyX45tVWxJWuxpKXTPCqomJXubpSA-TGknwnKXP3Bp5Ji51X2hXh7en7yj0yOAGPX7WKcDiRVaTEinaMuPl40wJx2Q3GzPpdg98IvD48nCU7C~sss9lB4n03c9fjqdDlG4iTLGpHcBv3rZwF-yYrFi~WorVN9ONotiovg2ZuYZ2RTCaJnqM24SV4S6NHYjw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+          </div>
+          <div class="banner-picture-frame">
+            <img class="banner-picture" src="https://s3-alpha-sig.figma.com/img/f93b/caf0/b21ca6822c65960188c50ec766935711?Expires=1685923200&Signature=B3NbTdshK3M1n3LE0I-doyJKEI2HepZSx-lbHDgWgpRdWXKWOT68ttM6VIG0frB3mARq7UYjhEbxnH3L2BPfZrl5Oi5QrZhz3-I5odnJLobxR4yFJ8cF1KnVGT23F10v4L6~rjNN8j3a0E1wZLEA3dGJgpUdqduy~0Fdf~jNYRuOC2GDZEFqgUIXNsZFlIAR2zkSHJmWbxWqKONeVfXqpr11~F51TgqXZPjBhGK7ZpgSnwBU5MsLT8XX-5DMU~~zWO5Go5n2qYxFuLGSqO5jO2ig6Pd4NzNikV5Mudj6zZZzeSvFSVbL46dgm3lnMJIXcn0sXnnvOOxzKus3dfYEig__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+          </div>
+          <div class="banner-picture-frame">
+            <img class="banner-picture" src="https://s3-alpha-sig.figma.com/img/b8b2/61d4/75d3cad652c43e43fcbeb9308891355e?Expires=1685923200&Signature=h0Omeo6fLeNz2wcrXjFX42NhGZ89l2H7VG1mFT0l9v8LAPseNnCQ8PQRYDUVHMpc~yNc-jzo0KgGCbAzcz4lxf~Tp4UGWQiHbkuCDYzaEHqeDqX3HlZkQ7WdBLWICYsEgczdSLPFRMArekJXGCwRuLHARcPb908bdXqBhnuyhT4FNu94qteJNByDVgOYzVkR~cZgmrxTgLYG1-YCR1PhRDGOz61Y8axIZVFtZqJx86RXW97PVqUgY6iDp8wC1slo6IxXb~3X0WjQFUeqRRJ0Bezp8NjH9da4hrwdqI3UFDxKUt5rk5UMxgouuHEqRHG-N6Jeyof6cxD1sb69rlx4hQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+          </div>
+          <div class="banner-picture-frame">
+            <img class="banner-picture" src="https://s3-alpha-sig.figma.com/img/650b/9480/4215af27bfdc47c982e60309348ff062?Expires=1685923200&Signature=aKNjn9nxrEY~iMqc-S-heactV152ZZUvbDYRu8Kh7FEMl4ylnPCMCyvgtuXn6gmF~DSue3phZSE4qA~VCXpuFlYH2C8VbJ~Td037Ado~u18uZBNnfUP6e4cF0hoxb5CCj4z1bXYUZR-8mwEdxYtDVX-Q9myicjYIIxpefzxovK7uFCfX3kruCov3fIS1pypwq~oo~YDbDzRYRJAlVkikG-t1XRSbh47P5GJJkFyFAZNRFfGL1pPw~uEbuR-VllU9AK-QV680nAdn5P9Lvbq-X~N8JdoBizszh~bCpXf6sSTEXQKlilFjCQjWPY-iptgRraCeVVz~QSFCXvGTaPF2Sw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="banner-body display-md-none display-none">
+      <h1 class="banner-header-mobile" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kaartenzoeker</font></font></font></font></font></font></font></font></font></font></h1>
+    </div>
+    <div class="banner_kaarten__content">
+      <h6><font style="vertical-align: inherit;"><!-- <font style="vertical-align: inherit;">Chosen by you</font> --><font style="vertical-align: inherit;">Gekozen ontwerpen</font></font></h6>
+      <div class="chosen_maps"><!-- <div class="chosenBox"><img alt="x" loading="lazy" src="/media/chosen_fulia.png" /></div>
+        <div class="chosenBox"><img alt="x" loading="lazy" src="/media/chosen_kris.png" /></div>
+        <div class="chosenBox"><img alt="x" loading="lazy" src="/media/chosen_sam.png" /></div>
+        <div class="chosenBox"><img alt="x" loading="lazy" src="/media/chosen_rosie.png" /></div> -->
+      </div>
+    </div>
+    <div class="banner-body">
+      <button class="history-button" onclick="openHistoryModal()">
+        <i class="fa-solid fa-clock-rotate-left"></i>
+        <p class="banner-text">Recente resultaten</p>
+      </button>
+    </div>
+  </div>
+</div>
+<!-- steps wrapper -->
+
+<div class="mobile_banner_text d-lg-none text-center mt-3">
+<p class="banner-text "><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit; font-weight: bold;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Binnen enkele kikken heb jij een selectie kaarten</font></font></font></font><br />
+<font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">die helemaal bij jou past</font></font></font></font></font></font></font></font></p>
+</div>
+
+<section class="steps_wrapper">
+<div class="container">
+<form id="stepsForm"><!-- progressbar -->
+<ul id="progressbar"><!--   <li class="active">&nbsp;</li>
+  <li>&nbsp;</li>
+  <li>&nbsp;</li>
+  <li>&nbsp;</li> -->
+</ul>
+
+<p class="stepForm_title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kies de kaart die jij het mooist vindt.</font></font><br />
+<span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Klik dan op &#39;Volgende&#39;.</font></font></span></p>
+</form>
+</div>
+</section>
+<!-- loader section -->
+
+<section class="loader_wrapper">
+<div class="container">
+<div class="loader_inner">
+<div class="loaderMain">&nbsp;</div>
+
+<h6><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Even geduld...</font></font></h6>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">We verzamelen jouw kaarten</font></font></p>
+</div>
+</div>
+</section>
+<!-- kaarten section -->
+
+<section class="kaarten_wrapper">
+<div class="container">
+<div class="cols cols-eq-height sm-cols-spacing productCards_wrapper"><!-- <div class="xs-12 sm-12 md-3 lg-3 mt-3  my-md-2"><a class="card p-4 pt-md-5 card_best"> <span class="card-text text-center"> <span class="card-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">These cards suit you </font></font><br />
+<font style="vertical-align: inherit;"><font style="vertical-align: inherit;">best!</font></font></span> <span class="button-group"> <span class="button card-button with-arrow bg-orange"></span> </span> </span> </a></div>
+
+<div class="xs-6 sm-6 md-3 lg-3 my-2"><a class="card " href="#"><img alt="x" class="card-img aspect-ratio-8" loading="lazy" src="/media/tinder_olivia01.png" /></a></div>
+
+<div class="xs-6 sm-6 md-3 lg-3 my-2 "><a class="card " href="#"><img alt="x" class="card-img aspect-ratio-8" loading="lazy" src="/media/tinder_fulia.png" /> </a></div>
+
+<div class="xs-6 sm-6 md-3 lg-3 my-2 "><a class="card " href="#"><img alt="x" class="card-img aspect-ratio-8" loading="lazy" src="/media/tinder_lou.png" /> </a></div>
+
+<div class="xs-6 sm-6 md-3 lg-3 my-2 "><a class="card " href="#"><img alt="x" class="card-img aspect-ratio-8" loading="lazy" src="/media/tinder_mila.png" /> </a></div>
+
+<div class="xs-6 sm-6 md-3 lg-3 my-2 "><a class="card " href="#"><img alt="x" class="card-img aspect-ratio-8" loading="lazy" src="/media/tinder_kris.png" /> </a></div>
+
+<div class="xs-6 sm-6 md-3 lg-3 my-2"><a class="card " href="#"><img alt="x" class="card-img aspect-ratio-8" loading="lazy" src="/media/tinder_loa.png" /></a></div>
+
+<div class="xs-6 sm-6 md-3 lg-3 my-2"><a class="card " href="#"><img alt="x" class="card-img aspect-ratio-8" loading="lazy" src="/media/tinder_kae.png" /> </a></div> --></div>
+</div>
+</section>
+<style type="text/css">.custom_banner h1{
+    font-weight: 700;
+font-size: 56px;
+line-height: 64px;
+    margin-bottom: 24px;
+  margin-top: 0px;
+}
+   .custom_banner p{
+   font-weight: 700;
+font-size: 18px;
+line-height: 28px;
+margin-bottom: 0px;
+}
+  .steps_wrapper .container{
+max-width: 1372px;
+  }
+
+  #stepsForm{
+    text-align: center;
+    position: relative;
+    margin-top: 16px;
+}
+
+/*progressbar*/
+#progressbar {
+  overflow: hidden;
+  /*CSS counters to number the steps*/
+  counter-reset: step;
+  max-width: 640px;
+  margin: 0px auto 10px;
+}
+#progressbar li {
+  list-style-type: none;
+  width: 20%;
+  float: left;
+  position: relative;
+}
+#progressbar li:before {
+  content: counter(step);
+  counter-increment: step;
+  width: 28px;
+  height: 28px;
+  line-height: 20px;
+  display: block;
+  font-weight: 800;
+font-size: 14px;
+line-height: 20px;
+  color: #CCCCCC;
+  background: white;
+  border-radius: 50%;
+  margin: 0 auto 5px auto;
+  display: flex;
+    align-items: center;
+    justify-content: center;
+  border: 1px solid;
+}
+/*progressbar connectors*/
+#progressbar li:after {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: #CCCCCC;
+  position: absolute;
+  left: -50%;
+  top: 12px;
+  z-index: -1; /*put it behind the numbers*/
+}
+#progressbar li:first-child:after {
+  /*connector not needed before the first step*/
+  content: none; 
+}
+/*marking active/completed steps green*/
+#progressbar li.active:before{
+  background: #fff;
+  color: #262626;
+}
+    #progressbar li.active:after{
+  background: #000;
+  color: #262626;
+}
+    #progressbar li.Completed_step:before{
+  background: #262626 !important;
+  color: #FFFFFF !important;
+}
+  
+  
+  .stepForm_title{
+    font-weight: 700;
+font-size: 16px;
+line-height: 24px;
+text-align: center;
+    margin-bottom: 40px;
+}
+  .stepForm_title span{
+font-weight: 500;}
+
+.stepsCard_wrapper .card{
+    background: #FAFAFA;
+    padding: 24px;
+    box-shadow: inset 0px 0px 24px rgba(0, 0, 0, 0.01);
+}
+.stepsCard_wrapper .card:hover, .productCards_wrapper .card:hover{
+    border: 1.5px solid #9EC6CF;
+}
+
+  
+.stepsCard_wrapper .card.activeCard, .activeBox{
+    border: 3px solid #9EC6CF;
+      box-shadow: 0px 3px 12px 0px #c1c1c1;
+}
+
+.stepsButtons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.stepsButtons .next_step{
+    width: 254px;
+height: 56px;
+border-radius: 100px;
+margin: 0;
+}
+
+.stepsButtons .previous_step{
+   width: 120px;
+height: 56px;
+background: #FFFFFF;
+border-radius: 100px;
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 1.5;
+text-align: center;
+color: #D67E60;
+border: unset;
+}
+
+
+#stepsForm fieldset{
+    position: relative;
+}
+
+#stepsForm fieldset:not(:first-of-type) {
+    display: none
+}
+  
+
+  /*loader section*/
+.loader_wrapper{
+    display: none;
+}
+.loader_inner{
+    padding: 120px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.loader_inner h6{
+    font-weight: 700;
+font-size: 16px;
+line-height: 22px;
+text-align: center;
+margin: 12px 0px 0px;
+    font-family: 'Nunito',sans-serif;
+}
+.loader_inner p{
+    font-weight: 400;
+font-size: 14px;
+line-height: 22px;
+text-align: center;
+}
+
+.loaderMain {
+ background: conic-gradient(from 90deg at 50% 50%, rgba(214, 126, 96, 0) 0deg, #D67E60 360deg);
+  /* Show only 10px from the border */
+  -webkit-mask:radial-gradient(farthest-side,#0000 calc(100% - 10px),#fff 0);
+          mask:radial-gradient(farthest-side,#0000 calc(100% - 10px),#fff 0);
+  border-radius: 50%;  
+  inset : calc(50% - 50px);
+  animation: rot 2s linear infinite; 
+      width: 60px;
+    height: 60px;
+}
+
+@keyframes rot {
+   100% { transform: rotate(360deg); }
+}
+
+
+/*kaarten setcion css*/
+.kaarten_wrapper{
+    display: none;
+}
+.kaarten_wrapper .container {
+    max-width: 1530px;
+}
+.kaarten_wrapper .card{
+height: 361px;
+}
+
+.kaarten_wrapper .productCards_wrapper .card.card_best{
+    background: #FCF0E7;
+}
+.kaarten_wrapper .card_best .card-text{
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+}
+.kaarten_wrapper .card_best .card-text .card-label {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+}
+.kaarten_wrapper .card_best .card-text .button-group{
+margin-top: 24px;
+}
+
+.kaarten_wrapper .card_best .card-text .button-group .button.with-arrow{
+    width: 44px;
+    height: 44px;
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.kaarten_wrapper .card_best .card-text .button-group .button.with-arrow:after {
+    font-family: Shopicons;
+    padding-left: 0px;
+}
+
+.banner_kaarten{
+    display: flex;
+    align-items: center;
+}
+
+.banner_kaarten__content{
+    width: fit-content;
+    margin: 0 auto;
+    display: none;
+}
+
+.banner_kaarten__content h6{
+font-weight: 700;
+font-size: 15px;
+line-height: 24px;
+margin: 0px 0px 12px;
+text-align: center;
+}
+
+.banner_kaarten.banner.banner-no-img .banner-body {
+    max-width: fit-content;
+}
+
+.banner.banner-no-img{
+  height: auto!important;
+}
+
+.chosen_maps{
+    display: flex;
+    gap: 15px;
+}
+
+.chosenBox{
+    width: 100px;
+    height: 100px;
+    background: #FAFAFA;
+border-radius: 10px;
+padding: 8px;
+cursor: pointer;
+}
+
+.productCards_wrapper .card {
+    background: #FAFAFA;
+    padding: 24px;
+    box-shadow: inset 0px 0px 24px rgb(0 0 0 / 1%);
+  justify-content: center;
+}
+  
+.fav_icon{
+    position: absolute;
+    top: 4px;
+    right: 14px;
+    z-index: 99;
+    padding: 5px;
+}
+
+.fav_icon i{
+    color: #26262673;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.fav_icon i.fas{
+    color: #262626;
+}
+
+.added_to_wishlist {
+    position: absolute;
+    top: 2px;
+    left: calc(0% - 202px);
+    width: 100px;
+    text-align: right;
+    display: none;
+    color: green;
+    white-space: nowrap;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: 'Nunito',sans-serif;
+    font-weight: 400;
+    color: #262626;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.added_to_wishlist.show {
+  opacity: 1;
+}
+
+.beating_heart .heart{
+	position: absolute;
+	top: 11px;
+	right: 11px;
+	border-radius: 100%;
+	background: #292929;
+	opacity: .5;
+	z-index: -1;
+	width: 7px;
+	height: 7px;
+	animation: heartbeat 1s infinite;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.beating_heart.stop .heart{
+	transition: 0.3s;
+  animation: none;
+}
+
+.beating_heart.stops .tooltip-heart{
+	transition: 0.3s;
+  	opacity: 0;
+  	visibility: hidden;
+}
+
+.beating_heart .tooltip-heart{
+	padding: 10px 20px;
+	border-radius: 3px;
+	background: #3E3E3E;
+	color: white;
+	position: absolute;
+	top: -75px;
+	right: -85px;
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+	opacity: 1;
+	visibility: visible;
+	transition: 0.3s;
+}
+
+.beating_heart .tooltip-heart::before {
+  content: "Klik op het hartje om een \A ontwerp te bewaren.";
+  white-space: pre;
+  text-align: center;
+  display: inline-block;
+}
+
+.beating_heart .tooltip-heart::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 10px);
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #3E3E3E transparent;
+  transform: rotate(180deg);
+}
+
+.navigation-bar-heart{
+  position: relative;
+}
+
+.navigation-bar-heart-tooltip::before{
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: calc(50% - 10px);
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #3E3E3E transparent;
+  transform: rotate(0deg);
+}
+
+.navigation-bar-heart-tooltip{
+  display: none;
+  position: absolute;
+  bottom: -105px;
+  left: -84px;
+  padding: 15px;
+  width: 210px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3E3E3E!important;
+  border-radius: 3px;
+  gap: 3px;
+  color: #ffffff;
+  z-index: 1000;
+}
+
+.navigation-bar-heart-tooltip p{
+  text-align: center;
+}
+
+.navigation-bar-heart-tooltip button{
+  padding: 8px 12px;
+  background-color: #C17156;
+  color: #ffffff;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+}
+
+.tooltip-overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  display: none;
+}
+
+.fav_icon i.far{
+  color: #262626!important;
+  -webkit-text-fill-color: white!important; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 2px!important;
+  -webkit-text-stroke-color: #262626!important;
+  font-weight: 900!important;
+}
+  
+@media (max-width: 1199.98px){
+.chosenBox{
+	width: 72px;
+	height: 72px;
+}
+.kaarten_wrapper .card {
+    height: 100%;
+}
+.kaarten_wrapper .card.card_best .card-label br {
+    display: none;
+}
+
+}  
+  
+  
+  @media only screen and (max-width: 991px) {
+    .chosenBox{
+    	width: 100px;
+    	height: 100px;
+    }
+    .no-padding-mobile {
+        padding: 0;
+    }
+    .banner_kaarten{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .banner-text-content{
+      display: none;
+    }
+    .banner{
+      padding: 40px 5%!important;
+    }
+    .banner-image-container{
+      flex-wrap: wrap;
+    }
+    .mobile_banner_text .banner-text{
+        font-size: 15px;
+        line-height: 24px;
+    }
+    .banner-body-history{
+      display: none;
+    }  
+
+    .banner_kaarten__content {
+        max-width: fit-content;
+        width: 100%;
+        margin: 0 auto;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 170px;
+    }
+
+    .kaarten_wrapper {
+        margin-top: 168px;
+    }
+    .kaarten_wrapper .card_best .card-text .button-group .button.with-arrow {
+        transform: rotate(90deg);
+    }
+    .kaarten_wrapper .card.card_best {
+        height: auto;
+        padding: 24px 12px !important;
+    }
+    .kaarten_wrapper .card.card_best .card-label br {
+        display: none;
+    }
+    .kaarten_wrapper .card {
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 767px) {
+#body_reviews .banner-title {
+        font-size: 28px;
+    line-height: 36px;
+    font-weight: 700;
+}
+
+#body_reviews .rating-stars {
+    display: none;
+}
+
+#body_reviews  .banner.banner-1 .banner-img {
+    width: 100%;
+    object-fit: cover;
+    height: 170px;
+}
+
+#body_reviews .banner-subtitle {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 800;
+    font-family: 'Nunito',sans-serif;
+    color: #fff;
+}
+
+.banner{
+  padding: 15px 8%!important;
+}
+
+.modal-title-close{
+    border-bottom: 1px solid #E4E4E4;
+  }
+  .modal-item-name{
+    display: none;
+  }
+  .modal-items{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .modal-item, .modal-item2{
+    padding: 10px 0px;
+  }
+
+.font-style{
+  font-size: 40px!important;
+}
+
+.history-modal-overlay{
+  align-items: flex-end;
+}
+
+.history-modal{
+  width: 100%;
+}
+
+.modal-item-list{
+  height: 500px;
+}
+
+.banner_kaarten__content{
+	top: 120px;
+}
+
+.stepsButtons {
+    margin-top: 0px;
+    position: fixed;
+    z-index: 999999999;
+    bottom: 0;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 8px rgb(0 0 0 / 12%);
+    width: 100%;
+    left: 0;
+    right: 0;
+    align-items: center;
+    padding: 12px;
+}
+
+.chosenBox {
+    width: 80px;
+    height: 80px;
+}
+.chosenBox img{
+    max-width: 100%;
+}
+.kaarten_wrapper{
+    margin-top: 148px !important;
+}
+.banner_kaarten__content {
+    max-width: 365px;
+}
+}
+  
+  
+   .card_text_sm{
+        font-style: normal;
+font-weight: 700;
+font-size: 15px;
+line-height: 24px;
+text-align: center;
+color: #262626;
+    }
+    .kaarten_wrapper .card_best .card-text .button-group .button.btn_repeat{
+        width: fit-content;
+        gap: 9px;
+        height: 44px;
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    }
+
+@media (max-width: 576px){
+  .font-style{
+    font-size: 22px!important;
+  }
+  .banner{
+  padding: 10px 8%!important;
+}
+.chevron-small{
+  padding: 10px;
+  height: 40px;
+  background-color: #F5F5F5;
+  border-radius: 100%;
+  width: 40px;
+  display: flex!important;
+  align-items: center;
+  justify-content: center;
+}
+.history-link{
+  display: none;
+}
+}
+</style>
+<script>
+  // Function to toggle the "selected" class on click
+  function toggleSelected() {
+    this.classList.toggle('selected');
+  }
+
+  // Get all the banner-picture-frame elements
+  const bannerPictureFrames = document.querySelectorAll('.banner-picture-frame');
+
+  // Attach click event listeners to each banner-picture-frame
+  bannerPictureFrames.forEach((frame) => {
+    frame.addEventListener('click', toggleSelected);
+  });
+</script>
+<script>
+  // Select the container element
+const container = document.querySelector('.navigation-bar-group-static-menu');
+
+// Create a new anchor element
+const newLink = document.createElement('a');
+
+// Set the href attribute of the anchor element
+newLink.href = '#';
+
+// Set the class name of the anchor element
+newLink.className = 'navigation-bar-item navigation-bar-heart';
+
+// Create a new icon element
+const newIcon = document.createElement('i');
+
+// Set the class name of the icon element
+newIcon.className = 'fa-regular fa-heart fa-lg';
+
+// Append the icon element inside the anchor element
+newLink.appendChild(newIcon);
+
+// Create a new span element
+const newSpan = document.createElement('span');
+
+// Set the class name of the span element
+newSpan.className = 'navigation-bar-badge navigation-bar-heart-count';
+
+newSpan.textContent = '0';
+
+// Append the span element inside the anchor element
+newLink.appendChild(newSpan);
+
+const newTooltip = document.createElement('div');
+
+// Set the class name of the span element
+newTooltip.className = 'navigation-bar-heart-tooltip';
+
+newTooltip.innerHTML = '<p>Hier kun je jouw favoriete ontwerpen terugvinden!</p><button class="tooltip-button">Ik begrijp het</button>';
+
+// Append the span element inside the anchor element
+newLink.appendChild(newTooltip);
+
+// Append the anchor element inside the container
+container.insertBefore(newLink, container.firstChild);
+
+</script>
+<script>
+  const wrapper = document.getElementById('wrapper');
+
+// Create the overlay element
+const overlay = document.createElement('div');
+overlay.classList.add('tooltip-overlay');
+
+// Append the overlay inside the wrapper
+wrapper.appendChild(overlay);
+</script>
+<script>
+  const buttonTooltip = document.querySelector('.tooltip-button');
+
+  // Select the tooltip and overlay elements
+  const tooltipHeart = document.querySelector('.navigation-bar-heart-tooltip');
+  const tooltipOverlay = document.querySelector('.tooltip-overlay');
+
+  // Add a click event listener to the button
+  buttonTooltip.addEventListener('click', () => {
+    // Hide the tooltip and overlay
+    tooltipHeart.remove();
+    tooltipOverlay.remove();
+  });
+</script>
+<script>
+  function openHistoryModal() {
+    // Create modal overlay
+    var overlay = document.createElement('div');
+    overlay.classList.add('history-modal-overlay');
+
+    // Create modal content
+    var modalContent = document.createElement('div');
+    modalContent.classList.add('history-modal');
+    modalContent.innerHTML = `
+      <div class="modal-title-close">
+        <h2 style="margin: 0;">Recente resultaten</h2>
+        <button class="modal-button" onclick="closeHistoryModal()">
+          <i class="fa-solid fa-xmark" style="color: #666666;"></i>
+        </button>
+      </div>
+      <div class="modal-item-name">
+          <div class="item-name">
+            <p class="banner-text">DATUM</p>
+          </div>
+          <div class="item-name" style="justify-content: center;">
+            <p class="banner-text">GEKOZEN ONTWERPEN</p>
+          </div>
+          <div class="item-name" style="justify-content: flex-end;">
+            <p class="banner-text">RESULTATEN</p>
+          </div>
+      </div>
+      <div class="modal-item-list">
+        <div class="modal-item-container">
+          <div class="modal-items">
+            <div class="modal-item">
+              <p class="banner-text">15 mei 2023, 15:06</p>
+            </div>
+            <div class="modal-item2">
+              <div class="banner-picture-frame2">
+                <img class="banner-picture2" src="https://s3-alpha-sig.figma.com/img/eede/feab/5d701797bd2e808d45029cfff936ffad?Expires=1685923200&Signature=pdMJiauHqJZvD7D2LRne2InMqRTSc6X7JRAxfezGnYx7~o3~vbP0cloDXsrU2isFlT7784XFyEUsCuEjNso7sfzlGMuzc8v9K-Pivpc--x9vhO9Hgqj0epK1DrcLh0AayejNfWE97HbHeUkpW0VTQ3TEyX45tVWxJWuxpKXTPCqomJXubpSA-TGknwnKXP3Bp5Ji51X2hXh7en7yj0yOAGPX7WKcDiRVaTEinaMuPl40wJx2Q3GzPpdg98IvD48nCU7C~sss9lB4n03c9fjqdDlG4iTLGpHcBv3rZwF-yYrFi~WorVN9ONotiovg2ZuYZ2RTCaJnqM24SV4S6NHYjw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+              </div>
+              <div class="banner-picture-frame2">
+                <img class="banner-picture2" src="https://s3-alpha-sig.figma.com/img/f93b/caf0/b21ca6822c65960188c50ec766935711?Expires=1685923200&Signature=B3NbTdshK3M1n3LE0I-doyJKEI2HepZSx-lbHDgWgpRdWXKWOT68ttM6VIG0frB3mARq7UYjhEbxnH3L2BPfZrl5Oi5QrZhz3-I5odnJLobxR4yFJ8cF1KnVGT23F10v4L6~rjNN8j3a0E1wZLEA3dGJgpUdqduy~0Fdf~jNYRuOC2GDZEFqgUIXNsZFlIAR2zkSHJmWbxWqKONeVfXqpr11~F51TgqXZPjBhGK7ZpgSnwBU5MsLT8XX-5DMU~~zWO5Go5n2qYxFuLGSqO5jO2ig6Pd4NzNikV5Mudj6zZZzeSvFSVbL46dgm3lnMJIXcn0sXnnvOOxzKus3dfYEig__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+              </div>
+              <div class="banner-picture-frame2">
+                <img class="banner-picture2" src="https://s3-alpha-sig.figma.com/img/b8b2/61d4/75d3cad652c43e43fcbeb9308891355e?Expires=1685923200&Signature=h0Omeo6fLeNz2wcrXjFX42NhGZ89l2H7VG1mFT0l9v8LAPseNnCQ8PQRYDUVHMpc~yNc-jzo0KgGCbAzcz4lxf~Tp4UGWQiHbkuCDYzaEHqeDqX3HlZkQ7WdBLWICYsEgczdSLPFRMArekJXGCwRuLHARcPb908bdXqBhnuyhT4FNu94qteJNByDVgOYzVkR~cZgmrxTgLYG1-YCR1PhRDGOz61Y8axIZVFtZqJx86RXW97PVqUgY6iDp8wC1slo6IxXb~3X0WjQFUeqRRJ0Bezp8NjH9da4hrwdqI3UFDxKUt5rk5UMxgouuHEqRHG-N6Jeyof6cxD1sb69rlx4hQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+              </div>
+              <div class="banner-picture-frame2">
+                <img class="banner-picture2" src="https://s3-alpha-sig.figma.com/img/54f0/12c6/d6177a33eb31bd178a7dc00888b823aa?Expires=1685923200&Signature=n6NNYoThPkZAQXNKMfKIo0Wa6SJb01rY9nqPlqVEkuCSnGxKM-ZNnbfVyFsJihBAE4eyR5NdbGsd~esjatfEaI8wCkbVjy4tSe4AEnot2EpGiKZHc2W3f2BxL3nxrPqaFdalJn05gAd9KJ9K8J0cKQDW5y7uP13qcdbNfB-88netz4mtv7WPGhRsp~cUnX1gs2sptM~LarnLrmIcoeZ6FOgNu0bSxMKwespqB7x5JhZkt3~tuL8qmdCmZA1XJUjHt1m3SDF2sVV733E0wS--v8aA9l3w9VJNFBWut6qAuvB4vRLwc6gwf2wKExCchGyqwOZIZaLpGm00Cius2cNOkw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+              </div>
+              <div class="banner-picture-frame2">
+                <img class="banner-picture2" src="https://s3-alpha-sig.figma.com/img/650b/9480/4215af27bfdc47c982e60309348ff062?Expires=1685923200&Signature=aKNjn9nxrEY~iMqc-S-heactV152ZZUvbDYRu8Kh7FEMl4ylnPCMCyvgtuXn6gmF~DSue3phZSE4qA~VCXpuFlYH2C8VbJ~Td037Ado~u18uZBNnfUP6e4cF0hoxb5CCj4z1bXYUZR-8mwEdxYtDVX-Q9myicjYIIxpefzxovK7uFCfX3kruCov3fIS1pypwq~oo~YDbDzRYRJAlVkikG-t1XRSbh47P5GJJkFyFAZNRFfGL1pPw~uEbuR-VllU9AK-QV680nAdn5P9Lvbq-X~N8JdoBizszh~bCpXf6sSTEXQKlilFjCQjWPY-iptgRraCeVVz~QSFCXvGTaPF2Sw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+              </div>
+            </div>
+          </div>
+          <div class="modal-item modal-item3">
+            <a href="#" class="history-link" onclick="closeHistoryModal()">Bekjik resultaten</a><i onclick="closeHistoryModal()" class="fa-solid fa-chevron-right chevron-small" style="color: #666666;"></i>
+          </div>
+        </div>
+        <div class="modal-item-container">
+          <div class="modal-items">
+            <div class="modal-item">
+              <p class="banner-text">15 mei 2023, 15:01</p>
+            </div>
+            <div class="modal-item2">
+              <div class="banner-picture-frame2">
+                <img class="banner-picture2" src="https://s3-alpha-sig.figma.com/img/326e/804e/bf33f2b3819353d8ad76b5aba64981be?Expires=1685923200&Signature=h9JtPt5e9SALMfevpsnSZ~WSoP~RXNAUvBe6WItu~2QfNGSJuK963EUO4Q5WhRCUW~0WxMDnX1SNHfiohdY7P2wjY0bXhun42E~2zLaKVZf77w08wRGGvSCv5B225A9jgCbRKg-PnpSZcVKKij590HP6YCaa9UHUpSUAN~lXbyaJi3DfSW8tkVoKOow7LC1TqBHrieTiCErApp8eh~np6DFNgZbc6oD1ca8KBc2I3aVRaRKD7og~rRvlOa-sC7W1Xv2sxVlL7jy5r7f63iXIriCiH8WYb8j5IL8WU-wQlW352LiL4iGTM~aw25S-O9c-cS3lFK7cZvxIkIZLXcRX5w__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+              </div>
+              <div class="banner-picture-frame2">
+                <img class="banner-picture2" src="https://s3-alpha-sig.figma.com/img/e11a/58e2/6016c0513552bd87f78423107cf7759b?Expires=1685923200&Signature=LbZT7KzyU5jX6B2ulxbdUOVnssVNKfn-qz9YSd39i3Yck-ZgC8pEYKy9dZw0g1joIkv5F0kLOV74bOSDN4qZcUJaA0BwW8wSLiun5VtB-k0aFikX2LN8CM5CT0LkcL1hu3D-5~SOeKp7ETJu3raVJjiT5UmxW3m3PjVbdQXzAGJHoM4aUAwc6rnU8aJqhzIDweQILuWkOSWJu2LwiCeP1MR5Lhp-IGeT5A2Aq6eq0cGffrTpga1m2XdXZQU1ftvoZ-dd~Eg6tbcaIPjUG67opyG2fY7sdfF8NcZOVM-RLIX-oUaq5r97YfZboP5uwqdimQONvmMn9qzUUtoXnoNmxQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+              </div>
+              <div class="banner-picture-frame2">
+                <img class="banner-picture2" src="https://s3-alpha-sig.figma.com/img/ad1b/36af/c521f48a90982176f8f513330e76ec6a?Expires=1685923200&Signature=mHz2HMb3e3ek4qZIxO1rtIcn2nwA7yN2G6jJGtwnTpDf2m~g8lTm7QC9J-7XM3b~WzLVGA5tJOmy9XbQoQpErDICDNPrepU0EgvjVgc~m4Dk9DYtB8s9BJMi1iIRB634VO1r0qCk1yXDx2RVBpO2T5AAWJNsLSg0RiH29utTRqiG1iYHoOC9r9LWatlFRUm9Y6dZ-uiTbOjns1eCFtVAduuvmIaA4Pi3mG0r6KfcIG0QpTzIUyrI~9M6~u2snBA3dr-wtquaH3H4aSwGDMwyh8sSwiWLs2ZZmdZ1t7Xl-jMKpD7DySYD6zp5V0j7b3hfY6Ph0rl-4XjeiasXxJy3UQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+              </div>
+              <div class="banner-picture-frame2">
+                <img class="banner-picture2" src="https://s3-alpha-sig.figma.com/img/53ed/6d9c/83f9b0b3faa011d175e9a2ecbad01b3e?Expires=1685923200&Signature=POOCMsud8-Uv0O5eF0D7byL3d5Rps~XFl9m6QmFMACnb1C5bBy8Gt2f4Kb-rCx4jU5hPZYX6y9r5yzoW8AGEg0Bsk09SQvPintZ1mOoSJG1CdV1ZtI9e8kkjXBTxXZ5i63vBeBoOZPIMfQbIL0P2Dqc-6rE9I6pw7dzFM8B2H6qrRboTDktSMQHKLWlJJzQ3-V0yXSjJCa7EpPayID-ejdQ1qbwtl6odSKOFvLjurM80VjBiQlveHEUvjm9Z8LCptr1IimzgVwfJRhxp7vedXdMKFxqfTHXpJlnBp8wNB8L3q5YJxheZ7xjAndEyhwNZJOGxasUc8Fcv~C-Z5e57CA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+              </div>
+              <div class="banner-picture-frame2">
+                <img class="banner-picture2" src="https://s3-alpha-sig.figma.com/img/4cc8/d75f/87562c013eb2f5a12cd630a1fe56d654?Expires=1685923200&Signature=Abcqz08Vklaq2F4qxhdGHjvIOSXVaNdhoNu2vJNgMF~B9sbcVx8yUbCgFD8LT9NBF4CeA6AEoUucJg8AGZWMQXdEV1Ln7lUTyNPB2h7gr1ECzna18Kogza2CoRRc9ruio~NpIbhnj3G5iGCdzqst4sAmttf~u1yJrdgLBjXnsDE4W0nn4eJqXVVDLWuGfjkvR9gHnlQxHsWOtNcQc3Ed7oktQaGpO5Jq1pSMj48VbXDAiyY8nejqujMfXzAaEd7JRqR2PDpQUbUZW6CNeEVmMFC21TYv9c71Nkt7zkpsa2r9nbZ7ygTfxX9oEDRfRG56OzOZ36iuLVzs8kBC0uyvqA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+              </div>
+            </div>
+          </div>
+          <div class="modal-item modal-item3">
+            <a href="#" class="history-link" onclick="closeHistoryModal()">Bekjik resultaten</a><i onclick="closeHistoryModal()" class="fa-solid fa-chevron-right chevron-small" style="color: #666666;"></i>
+          </div>
+        </div>
+        <div class="modal-item-container">
+          <div class="modal-items">
+            <div class="modal-item">
+              <p class="banner-text">12 mei 2023, 08:23</p>
+            </div>
+            <div class="modal-item2">
+              <div class="banner-picture-frame2">
+                <img class="banner-picture2" src="https://s3-alpha-sig.figma.com/img/880a/74d8/58cbf4d8368c786fe487c7af690e2613?Expires=1685923200&Signature=YB~1lKy7qG0ncA-6Bwn3WIMe2~pPo23kDmCUggV5eXjoQ8ZEABIhnEqO1xkTVvH1rqrOc6mmVbExdDSemAA0p1mEBT7t3~1I49TTRQULJxXWPZ5ld~I4IXobPu4Uon5gIAn-2dJM3OvXM~EzlSz5-lAhBMfXq6m7QwxBl2nHMgV6fGR6zb0FOdi-gcaAy8hVrdVfhxTPuZBxlChQVXLdAmg2WSroPqzyUXB6MLrPRzOn2A3w0LzZEVz--9J-PQ9fvA3tbUAbR9PKRVo9yQH8no39RIxyFyr667mEXYrg8akzGfy7UcKENuPmCSgE0X2KL-mfgcdSYe5EIYgAVoIEBw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+              </div>
+              <div class="banner-picture-frame2">
+                <img class="banner-picture2" src="https://s3-alpha-sig.figma.com/img/f37e/af2e/a1ad5c3f8155b5ef44c56046a24ed1e4?Expires=1685923200&Signature=mw3ZOlt6H~NO4Ye26e1HQrR0fY7n32HNpc0B11F7DRU8mzsvIDXsf9hUelhOC5fSEHhZFeiJIHE2MkdeYZgjfZPh-0WUhBP5SjTxAe00CMk4BB8X3F8fgstSwsRjHBiLt4etAGj73osmXtTZUeJHlRainlflfFrJ0v3rGi4NtyjrQEjp1MVBaPDLrraZFhhE~U8abC8JSvHSw9vlVc2l8QHB-viXVBS9zKVasi58fse~wWgpX3984tiy5LY~k3QMmoFek~8uKQY71gIgLopLGOo-sbTSOV76hCnnR3~hO3EjpQ99w1rWeWN1zgDDN~mXIo~q0xnDKiDod4n3BhfJ6g__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+              </div>
+              <div class="banner-picture-frame2">
+                <img class="banner-picture2" src="https://s3-alpha-sig.figma.com/img/6297/c0cb/82b82388b367f0c3724dc0689f14879b?Expires=1685923200&Signature=gaYUfZKEfbf2xlmk2-QUsY-HIcmwm1JaZzjc2cGrjPy4kKeKmPKNgrIl1oD2zLsc0a8SNAu5k~zpmjt4Fh1ZVKygrCoz4YvCbvtEBrOussrXNsn39Qa6x-FB2FBrQgi11eh1vJxpLtNLjRD6PCeeOU7VgUf1E2gvar04d7JrNQN6Hwxh02aKm~Fz~Lra~HoAKJHql2M6v-vJqLlxxCern29kULPEcEDA-2chPK9slxQ3Ecie2OLP249RIh5-EiQlIqcii2sPYu7ugS3DpZqV-bd6SRUam5L3sKOtGEDgGE~0wNhtSP~c-HW6twsSgAQNw9eOITjh01YHzYjZw~SpRw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+              </div>
+              <div class="banner-picture-frame2">
+                <img class="banner-picture2" src="https://s3-alpha-sig.figma.com/img/7ddd/de43/e017a6eaf2302d89866a4bad5938422c?Expires=1685923200&Signature=Kes0MG4B-NPuUpW2ovrNzgD3o94dpIf8uIQLbITTyC-wiJWPQKfaJXS6M5sfwIA4379kdC79~p~xb47~38qOLV-Md29n68PJk7yKEwOi6wgQfdTAsxMfyT-Y62D3~31eWDqVx7ddYPnJFLi9fjCRA0rbrsJjtn3PbjNohMRrcYZH9LsYS3S1S4YlLv53tfet-TSXv7nNzPbicY9cGKi6Ft8iNKcODdBvmhYn8SFOCFSpV8OPjFdnkFbP9Byn8gC-6WzwZ-yIIy7MNkxo3ZSlEDdiNNJ38JNtjMh-LwyhO2SVMiXw25US5AvG6-SIzjf-so~g8NjW4-H4YUj~aoJTuA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+              </div>
+              <div class="banner-picture-frame2">
+                <img class="banner-picture2" src="https://s3-alpha-sig.figma.com/img/af51/3288/0d09e718be6381bedf6caedcc5aea906?Expires=1685923200&Signature=AYGK-0OROsgA4Zv98dnM8cXNjApvaoaM-OeTiIE~2QXqj1iLklO9uwM4lsRF8L84KAri18xDbEYEl~92a0grS5RsaUPQWd-oAO7cKyCglipdHwRgJWaTs9ikbMVPSWmOaCoUxPrBMIwYi6-dLXAnMsFYNarVJayF26ONQVx6NxF34~r~hhypgvGhHJRduNdUARB9qAKlZNAOGGDi~RrBfRz6~25NcrSWEwSxSP6cd8G745Loe6Tj6zPelgPcXN1uK7SOlzNAaUrDB-Dc4s8SUsIxcFojZFrIO49V0CL-2uZFGfZAWXxsYcclY-oZvo9MudDjawXU7RKTNART~a8VqA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+              </div>
+            </div>
+          </div>
+          <div class="modal-item modal-item3">
+            <a href="#" class="history-link" onclick="closeHistoryModal()">Bekjik resultaten</a><i onclick="closeHistoryModal()" class="fa-solid fa-chevron-right chevron-small" style="color: #666666;"></i>
+          </div>
+        </div>
+        <div class="modal-item-container">
+          <div class="modal-items">
+            <div class="modal-item">
+              <p class="banner-text">12 mei 2023, 07:51</p>
+            </div>
+            <div class="modal-item2">
+              <div class="banner-picture-frame2">
+                <img class="banner-picture2" src="https://s3-alpha-sig.figma.com/img/e05b/4db4/6067e78b3edb6f3bd08ce1c54ce79eff?Expires=1685923200&Signature=gBp0RhHeMVJXIXuxOpw~Kmtzi87ySrV1SEcQ-EdozScxK4n5OjupeVjkx9Y7URcRyFw2NxOQEhZ7-NVHzd0EDDnfvUQjfgHRtkXmVYNS1kB2XZWC27ZEHKtvTDvRGjjVNWf02MUiNKQGkUuhAVCWZ3wg-kyaiYHFE4nuH9cWQfG2lWWqSc82WLPoY2z1APYGhRvyDrnmiklpQIn1gp4EGk~oBxCjML9liO5SjE5LoGSjvBLw0s9Z8RGjnHM2-n-d6Dj8sc9k~54aWW~42c8El0d7QhXa84Dv-s9Rnrsr78DMcSml7MKRzfiKjYvB5taloHd5Q9EyTseBaFagIpO5~w__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+              </div>
+              <div class="banner-picture-frame2">
+                <img class="banner-picture2" src="https://s3-alpha-sig.figma.com/img/1925/936f/0f9cfdf1d8238b3d1fe2aed0f5eadee4?Expires=1685923200&Signature=NHnRfLU0-Ks-gcj3JBLngmFWv~I~S6BQTpViDUCFuD7sIq3Irm-RkRQ-oa0EiLiu3Uhzo9LU86LG81VtuEUe-ehmsUCejbU3St9bLtAHKSLElNgXYJCLbe7TpWl2VacOVjk7~fydMTwYeG62r61JfjgmsIezdAB8Dr6HcmmDXI6sUyYxT5joCxL0b6tp~Jodv63D4~iLSsjZP4DjTqAkxnXfgYmh43Mf8T639ykcwXIlHvBUu4s4x6QSxnASJdRoS5UJq-p6~UjCXFEP-BUesuDvC94clxmR5jvkoJMz1FLgWO9KdTGPaIpkh5VBNAtZFsyrHuVnyhhz2jyd-MWbsg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+              </div>
+              <div class="banner-picture-frame2">
+                <img class="banner-picture2" src="https://s3-alpha-sig.figma.com/img/910b/f640/4ee241f86be6a5f9d61d470f41ec13b3?Expires=1685923200&Signature=EMf7TnrC4gF~80eV-7ZgmSx~5A44zDl1RFpShgjgZGQoXVgDdjdNBnOfrDdyy~S7j~pcsk82lq7WxBxWuzv~P3IuiXcg8HZ4W~I1D4JF9osVE5RJ0NOmL8OXmrcJXwyc2rmXiHoqTYXe4XQyaF-g4yu69C0rF7~0mb2o4Yc2xPLPGfNX~jJUef4q24pODmhL90bIK0kiSD11DyfYuubXIXtE3RXC0yrqmiqYaKWDkFqYFDf0a56hgo0SXAxRO1MvSGIbmgaOG3iqsYFzEr~1xc5B5~0qIYRAP35DF03GLr6A~4oHPMJ1t9Pb1kfGUfOa8CyK-R6NgMWxYvSNF56S9g__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+              </div>
+              <div class="banner-picture-frame2">
+                <img class="banner-picture2" src="https://s3-alpha-sig.figma.com/img/af51/3288/0d09e718be6381bedf6caedcc5aea906?Expires=1685923200&Signature=AYGK-0OROsgA4Zv98dnM8cXNjApvaoaM-OeTiIE~2QXqj1iLklO9uwM4lsRF8L84KAri18xDbEYEl~92a0grS5RsaUPQWd-oAO7cKyCglipdHwRgJWaTs9ikbMVPSWmOaCoUxPrBMIwYi6-dLXAnMsFYNarVJayF26ONQVx6NxF34~r~hhypgvGhHJRduNdUARB9qAKlZNAOGGDi~RrBfRz6~25NcrSWEwSxSP6cd8G745Loe6Tj6zPelgPcXN1uK7SOlzNAaUrDB-Dc4s8SUsIxcFojZFrIO49V0CL-2uZFGfZAWXxsYcclY-oZvo9MudDjawXU7RKTNART~a8VqA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+              </div>
+              <div class="banner-picture-frame2">
+                <img class="banner-picture2" src="https://s3-alpha-sig.figma.com/img/0f9b/8330/22dc6660d8fe2f580fa6126d54be49b1?Expires=1685923200&Signature=qlwt4-I8p1jSvMyiB8NWDEnt7zux4mXu1m~KvmeBOBSzurgGwPeAtDzkEvoBi6xNw6LFOnYsK5ERK-Ge~RPgtysAG4DMn4pXJgCZOg~4uPf8TYa-7O4HkpHtPBXcERf8HudQKLYto9GicqFQhx7ORkkVpuVx7XzLBFHUP3VBUX9EAwA-uN2XO7ZCPODp~IfagqwnHAo719NQwvXYwk18oizI3gxnog6AluSzXxBE~C276PJQZUDq7ySDaQ0RR0Az2UC0xpvmRai5OtXWKhbVIEroEz4yQUYzCwW-NdLqu2ep-qXbSN5rKo~pF4doig6zQTg95iqSTYkGJRc36EGDOQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+              </div>
+            </div>
+          </div>
+          <div class="modal-item modal-item3">
+            <a href="#" class="history-link" onclick="closeHistoryModal()">Bekjik resultaten</a><i onclick="closeHistoryModal()" class="fa-solid fa-chevron-right chevron-small" style="color: #666666;"></i>
+          </div>
+        </div>
+        <div class="modal-item-container">
+          <div class="modal-items">
+            <div class="modal-item">
+              <p class="banner-text">10 mei 2023, 11:13</p>
+            </div>
+            <div class="modal-item2">
+              <div class="banner-picture-frame2">
+                <img class="banner-picture2" src="https://s3-alpha-sig.figma.com/img/af51/3288/0d09e718be6381bedf6caedcc5aea906?Expires=1685923200&Signature=AYGK-0OROsgA4Zv98dnM8cXNjApvaoaM-OeTiIE~2QXqj1iLklO9uwM4lsRF8L84KAri18xDbEYEl~92a0grS5RsaUPQWd-oAO7cKyCglipdHwRgJWaTs9ikbMVPSWmOaCoUxPrBMIwYi6-dLXAnMsFYNarVJayF26ONQVx6NxF34~r~hhypgvGhHJRduNdUARB9qAKlZNAOGGDi~RrBfRz6~25NcrSWEwSxSP6cd8G745Loe6Tj6zPelgPcXN1uK7SOlzNAaUrDB-Dc4s8SUsIxcFojZFrIO49V0CL-2uZFGfZAWXxsYcclY-oZvo9MudDjawXU7RKTNART~a8VqA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+              </div>
+              <div class="banner-picture-frame2">
+                <img class="banner-picture2" src="https://s3-alpha-sig.figma.com/img/8b9b/6f36/1f89194456b06796d1d551401ee1e68e?Expires=1685923200&Signature=USgg3paImxXm7hqxLSVHAu0ntJ8xS3f-H9fBVtLqhFOiuOg7SfCxsUJnolqeExEO2pEQe2QYOVKZFtlqFOIvjUyvIf2uKqAUOi6VE5gqrlz-lNAgwhYWOtGfCAn6nQuQQaSc7i6hq-7bLO9ZB8ubtAeuBFgOF-OvyZxLibGRbvvKq7KrR5WphNosk1O29RlzTqI2ug~mWHUovEkaJePBq96ipQqwZfwfbAGslNobwegJK02lRiptWMRewaoi9VUgbjuoZMy8k9LbPaz0XZpJHEFlouKI13KIHTCyNSP7TIfyiQjAEkUh4i3YGX4X8RhD2lDhD8i20ZjiN8t6B3rsHA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+              </div>
+              <div class="banner-picture-frame2">
+                <img class="banner-picture2" src="https://s3-alpha-sig.figma.com/img/0713/1e92/4b994f9a4442234cf8efb8f19babf75b?Expires=1685923200&Signature=Zxx01o3esvMEpMuI8GRzZRIGXhe6Ja32rjpzd02SUBvp6jMV24dJHd7n1NJnuVuOh1qY19aHjsprMnwKRWxhSGx-7V-zq6vnHF8gx7QmK1gUzWCdLstKx73bIdqufw7kkF~tMRfTspe3g5R-MnGhLwHRaqOXPhTXX53vThcO2Toh7t7j9XjoM3O5Ed~W7mnv2P5ZgsNMxUqgSjP4cAdPpxBPYZ83Y7UOyrNR2KTR58yKRJ81uUDHoZQL-x10y687rsZ2MpBrtgoGYmRarFoXlyV0E3vGIGr-f95pNObeMj1pqBWgDIyb-GcB2I2~T-Th2OLYLceMpzhE7cjvb61hVQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+              </div>
+              <div class="banner-picture-frame2">
+                <img class="banner-picture2" src="https://s3-alpha-sig.figma.com/img/1925/936f/0f9cfdf1d8238b3d1fe2aed0f5eadee4?Expires=1685923200&Signature=NHnRfLU0-Ks-gcj3JBLngmFWv~I~S6BQTpViDUCFuD7sIq3Irm-RkRQ-oa0EiLiu3Uhzo9LU86LG81VtuEUe-ehmsUCejbU3St9bLtAHKSLElNgXYJCLbe7TpWl2VacOVjk7~fydMTwYeG62r61JfjgmsIezdAB8Dr6HcmmDXI6sUyYxT5joCxL0b6tp~Jodv63D4~iLSsjZP4DjTqAkxnXfgYmh43Mf8T639ykcwXIlHvBUu4s4x6QSxnASJdRoS5UJq-p6~UjCXFEP-BUesuDvC94clxmR5jvkoJMz1FLgWO9KdTGPaIpkh5VBNAtZFsyrHuVnyhhz2jyd-MWbsg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+              </div>
+              <div class="banner-picture-frame2">
+                <img class="banner-picture2" src="https://s3-alpha-sig.figma.com/img/ff27/4773/e0537a4b2d1f9b4c48fd03148a4bfdef?Expires=1685923200&Signature=NHKjF2QnVnh3B0W3brsc~c~ZJpNZqJSj2lKYJJL0t0LCJxcyGR-JdXGVCHQwlkptZB0hPP9LH5nZWwHs-RHpJ3UiCyk2s6If1z4a19V-u4q3SNZi1R~XkFnuF1OCFfqU7MFmsvLSiCOMSEnY4Usxqkuthh3yklFYXjb~fhq-PnxOKgJ3Jthc-7DmNney1P3O59~TlsWOQBqYV5FHnEiy5YSC8bqKce9mYu8tafNS1ko1IVsZhLpDFR9lsILmuyL0kz66Uqwfq9A4Ik0vQA75TSAIdCQX9qDmOG5AkgrM~0i2l1cuQfBWCsmgf2lPqEFm2hFM9xPClDD3waqRa1~tlg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+              </div>
+            </div>
+          </div>
+          <div class="modal-item modal-item3">
+            <a href="#" class="history-link" onclick="closeHistoryModal()">Bekjik resultaten</a><i onclick="closeHistoryModal()" class="fa-solid fa-chevron-right chevron-small" style="color: #666666;"></i>
+          </div>
+        </div>
+        <div class="modal-item-container">
+          <div class="modal-items">
+            <div class="modal-item">
+              <p class="banner-text">10 mei 2023, 11:05</p>
+            </div>
+            <div class="modal-item2">
+              <div class="banner-picture-frame2">
+                <img class="banner-picture2" src="https://s3-alpha-sig.figma.com/img/0f9b/8330/22dc6660d8fe2f580fa6126d54be49b1?Expires=1685923200&Signature=qlwt4-I8p1jSvMyiB8NWDEnt7zux4mXu1m~KvmeBOBSzurgGwPeAtDzkEvoBi6xNw6LFOnYsK5ERK-Ge~RPgtysAG4DMn4pXJgCZOg~4uPf8TYa-7O4HkpHtPBXcERf8HudQKLYto9GicqFQhx7ORkkVpuVx7XzLBFHUP3VBUX9EAwA-uN2XO7ZCPODp~IfagqwnHAo719NQwvXYwk18oizI3gxnog6AluSzXxBE~C276PJQZUDq7ySDaQ0RR0Az2UC0xpvmRai5OtXWKhbVIEroEz4yQUYzCwW-NdLqu2ep-qXbSN5rKo~pF4doig6zQTg95iqSTYkGJRc36EGDOQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+              </div>
+              <div class="banner-picture-frame2">
+                <img class="banner-picture2" src="https://s3-alpha-sig.figma.com/img/d25f/3249/32d22eda9fca3755478f4028b0ea4220?Expires=1685923200&Signature=cptWIMLj1cmDnbxwGUZ-9agsfyPKN2rYY812deIauYFB3jEh5V4RCc28wO7pvkr4Y5lXz7YssxDfZASt~mJAbDYLyoobqqxVb7AQkQjKhV33Z9B9jnl9StfgHiY3ihbpFF72B1aWUUHanX6693tX4ACzicReaMmA7bwDv35M43vsbsBBnscO2K-e0MqDALqQnpzlyjBgmdH~jsUPo7fk4kLVqdtmXHAWYiCMSs2iM7b1iCcLRewWu7VUHRD4pOcoeWF11TrRBaP24w4Eb3fzu8fqWQTt6vrmjAvP8U~6FtmUxxIf2IVzbl6idOTbP8ffY9VDS1TInXeTNIvJUolP~g__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+              </div>
+              <div class="banner-picture-frame2">
+                <img class="banner-picture2" src="https://s3-alpha-sig.figma.com/img/f37e/af2e/a1ad5c3f8155b5ef44c56046a24ed1e4?Expires=1685923200&Signature=mw3ZOlt6H~NO4Ye26e1HQrR0fY7n32HNpc0B11F7DRU8mzsvIDXsf9hUelhOC5fSEHhZFeiJIHE2MkdeYZgjfZPh-0WUhBP5SjTxAe00CMk4BB8X3F8fgstSwsRjHBiLt4etAGj73osmXtTZUeJHlRainlflfFrJ0v3rGi4NtyjrQEjp1MVBaPDLrraZFhhE~U8abC8JSvHSw9vlVc2l8QHB-viXVBS9zKVasi58fse~wWgpX3984tiy5LY~k3QMmoFek~8uKQY71gIgLopLGOo-sbTSOV76hCnnR3~hO3EjpQ99w1rWeWN1zgDDN~mXIo~q0xnDKiDod4n3BhfJ6g__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+              </div>
+              <div class="banner-picture-frame2">
+                <img class="banner-picture2" src="https://s3-alpha-sig.figma.com/img/3263/4750/d7d3025c5cdf51ce188a31263bea3fbe?Expires=1685923200&Signature=fIcZCzZ-bpoQTOe~KYbHu9HD3Rtf1lPAwc09F-AtADGTk8ru16RB6CKqs5LubPyvecw1rPlCcyMZ7cifaonRVvKwUjockW12br2ffQIZN164ipxdmMBGDiZvkC9~LsMoXTuR25lhZibePm03wi58qooTmt1BQ7Pr7nquFpExSmeZZwB06PCiyxLkY6uk~KtHlcHoiHAtN0KOAMflNM0jVk5sigWsGs06hnIfRf2xzvb08Klox2ad9sDd9c708yObVR-oQ-hV~jh~If0wYvIIIpG3BoHAaUYeUIX1sp55B~KxGcRou2YNGg2od-Qnu2CtoIpPuVankiiS8bK6d-NNTw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+              </div>
+              <div class="banner-picture-frame2">
+                <img class="banner-picture2" src="https://s3-alpha-sig.figma.com/img/3c11/6b36/f50a5c86f7cf60fc0a346c340d99e459?Expires=1685923200&Signature=g8mKF2SOulYMtAOJspXmDHmtFob4xK6NeFLUxdrKbZwQeDV~tLKYg2LSvYWU8D1zBs2wctXZfLBzFlD0CvKIJuc5DYCLfNKg6yHYltNOyhIdsU8hNEt6dqKOTsBshjqBSSf6Am2lu6-Da3Al93F~sDIq~WsiLspqSmB3cslx5tIkiAAcK2bX21iYQfG1l36-FBoaSAOmwOaJohH5tAX4bJE3HHZMHPURgC7d3uREuhMCfs9fh9xVS~zvebvlrm3tomOT2uQyWTp3cH5oXcV6aeQi9YhhB~Z7gNy~EuntSFoDiix2aQUgksJsrtiIHSz-cDWOELeqS1BA-Go83DQ2Ng__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+              </div>
+            </div>
+          </div>
+          <div class="modal-item modal-item3">
+            <a href="#" class="history-link" onclick="closeHistoryModal()">Bekjik resultaten</a><i onclick="closeHistoryModal()" class="fa-solid fa-chevron-right chevron-small" style="color: #666666;"></i>
+          </div>
+        </div>
+        <div class="modal-item-container">
+          <div class="modal-items">
+            <div class="modal-item">
+              <p class="banner-text">10 mei 2023, 10:59</p>
+            </div>
+            <div class="modal-item2">
+              <div class="banner-picture-frame2">
+                <img class="banner-picture2" src="https://s3-alpha-sig.figma.com/img/9002/f34b/faa7530c54f3e24d935bdefe16b76739?Expires=1685923200&Signature=QnB6zxxUmiXasnzggmuqxjt1tNLIufpRoeiBy9hTi9QDAY~rzJQyaMp5iT53Mb8BXRmFWUrQm~aOrGVbMa0kgO4jPTxsLvRm88AmSqK4iA4fkVICRRvbDWNMtTXk8j3y96UZdnR1Z0R3bEGeOaTA3flnTS687GvXvqrK~flHzP44AToguq~bim00fO2dXNK9CJ7LFM9TPTjAKBwrWBYDHHyfjO-8BkhcBu4X51JPvQup-mFhOFRAAh2Vuh8Cq4RKZcSzH1gHMgqKX8F2GHA6WRjXXr8M3aSaOd8~VU3y7sXyhwer04nV3pO~cX9Jys0Vm1obKsPvtHpDQZvLPQLN7w__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+              </div>
+              <div class="banner-picture-frame2">
+                <img class="banner-picture2" src="https://s3-alpha-sig.figma.com/img/1925/936f/0f9cfdf1d8238b3d1fe2aed0f5eadee4?Expires=1685923200&Signature=NHnRfLU0-Ks-gcj3JBLngmFWv~I~S6BQTpViDUCFuD7sIq3Irm-RkRQ-oa0EiLiu3Uhzo9LU86LG81VtuEUe-ehmsUCejbU3St9bLtAHKSLElNgXYJCLbe7TpWl2VacOVjk7~fydMTwYeG62r61JfjgmsIezdAB8Dr6HcmmDXI6sUyYxT5joCxL0b6tp~Jodv63D4~iLSsjZP4DjTqAkxnXfgYmh43Mf8T639ykcwXIlHvBUu4s4x6QSxnASJdRoS5UJq-p6~UjCXFEP-BUesuDvC94clxmR5jvkoJMz1FLgWO9KdTGPaIpkh5VBNAtZFsyrHuVnyhhz2jyd-MWbsg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+              </div>
+              <div class="banner-picture-frame2">
+                <img class="banner-picture2" src="https://s3-alpha-sig.figma.com/img/ff27/4773/e0537a4b2d1f9b4c48fd03148a4bfdef?Expires=1685923200&Signature=NHKjF2QnVnh3B0W3brsc~c~ZJpNZqJSj2lKYJJL0t0LCJxcyGR-JdXGVCHQwlkptZB0hPP9LH5nZWwHs-RHpJ3UiCyk2s6If1z4a19V-u4q3SNZi1R~XkFnuF1OCFfqU7MFmsvLSiCOMSEnY4Usxqkuthh3yklFYXjb~fhq-PnxOKgJ3Jthc-7DmNney1P3O59~TlsWOQBqYV5FHnEiy5YSC8bqKce9mYu8tafNS1ko1IVsZhLpDFR9lsILmuyL0kz66Uqwfq9A4Ik0vQA75TSAIdCQX9qDmOG5AkgrM~0i2l1cuQfBWCsmgf2lPqEFm2hFM9xPClDD3waqRa1~tlg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+              </div>
+              <div class="banner-picture-frame2">
+                <img class="banner-picture2" src="https://s3-alpha-sig.figma.com/img/723c/3a31/eb477252aa63fdfcb4be2f3623f5d2ed?Expires=1685923200&Signature=n2y4l~EpOSF-ok-d7LFhS0BQ0yCPI98lY7UxKmOwZCF~ILFqN9ioPtfntoVXg4CBLjuamtMarHFqaiMkz9lU6bXwwPqZlocDKObiUwU9zou9KGyU5wJ4sdEJtdk7QNEZq6j6bRmcBLvbqbas9vxRrZdnv36LNsPegpnEaTP49I8SbYG2p6h-3m6gUWhdNsdCTHP0pjrWKbVrUIPEXqE4j2AhAzzAbMycKEk32s9-Iofoir0XEPymSr3~LY4sF92oxcg5Y~E3g-~KeTM2MzAJxEoOzF3b7R9l2gggNiskmxzO1DEmurOO-Oh6gWnocmSxaLCL~dPAxGWCqLMZGXIMWA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+              </div>
+              <div class="banner-picture-frame2">
+                <img class="banner-picture2" src="https://s3-alpha-sig.figma.com/img/8b9b/6f36/1f89194456b06796d1d551401ee1e68e?Expires=1685923200&Signature=USgg3paImxXm7hqxLSVHAu0ntJ8xS3f-H9fBVtLqhFOiuOg7SfCxsUJnolqeExEO2pEQe2QYOVKZFtlqFOIvjUyvIf2uKqAUOi6VE5gqrlz-lNAgwhYWOtGfCAn6nQuQQaSc7i6hq-7bLO9ZB8ubtAeuBFgOF-OvyZxLibGRbvvKq7KrR5WphNosk1O29RlzTqI2ug~mWHUovEkaJePBq96ipQqwZfwfbAGslNobwegJK02lRiptWMRewaoi9VUgbjuoZMy8k9LbPaz0XZpJHEFlouKI13KIHTCyNSP7TIfyiQjAEkUh4i3YGX4X8RhD2lDhD8i20ZjiN8t6B3rsHA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4">
+              </div>
+            </div>
+          </div>
+          <div class="modal-item modal-item3">
+            <a href="#" class="history-link" onclick="closeHistoryModal()">Bekjik resultaten</a><i onclick="closeHistoryModal()" class="fa-solid fa-chevron-right chevron-small" style="color: #666666;"></i>
+          </div>
+        </div>
+      </div>
+    `;
+
+    // Append modal content to overlay
+    overlay.appendChild(modalContent);
+
+    // Append overlay to body
+    document.body.appendChild(overlay);
+
+    // Add 'history-modal-open' class to body to hide scrollbar
+    document.body.classList.add('history-modal-open');
+  }
+
+  function closeHistoryModal() {
+    // Remove the modal overlay
+    var overlay = document.querySelector('.history-modal-overlay');
+    overlay.remove();
+
+    // Remove 'history-modal-open' class from body to restore scrollbar
+    document.body.classList.remove('history-modal-open');
+  }
+
+  // Close modal when clicking outside the modal content
+  window.onclick = function(event) {
+    var modalOverlay = document.querySelector('.history-modal-overlay');
+    if (event.target === modalOverlay) {
+      closeHistoryModal();
+    }
+  };
+</script>
+<script>
+  
+
+</script><script type="text/javascript">
+
+  let listOne = [
+  {id: "goudfolie-geboortekaartje-jongen-hip-groen-spetters-bladeren", main_category:"geboortekaartjes-folie-dubbelzijdig", category:"jongen", gender:"jongen"},
+  {id: "koperfolie-geboortekaartje-jongen-hip-jungle-olifant-planten", main_category:"geboortekaartjes-folie-enkelzijdig", category:"jongen", gender:"jongen"},
+  {id: "vierkant-geboortekaartje-rondhoek-leeuw-zandkleur-velvet-look", main_category:"geboortekaartjes-rondhoeken", category:"jongen", gender:"jongen"},
+  {id: "zwart-folie-geboortekaartje-jongen-broertje-silhouet-waterverf-blauw", main_category:"geboortekaartjes-folie-dubbelzijdig", category:"jongen", gender:"jongen"},
+  ]
+
+  let listTwo = [
+  {id: "goudfolie-geboortekaartje-jongen-hip-groen-spetters-bladeren", main_category:"geboortekaartjes-folie-dubbelzijdig", category:"jongen", gender:"jongen"},
+  {id: "koperfolie-geboortekaartje-jongen-hip-jungle-olifant-planten", main_category:"geboortekaartjes-folie-enkelzijdig", category:"jongen", gender:"jongen"},
+  {id: "vierkant-geboortekaartje-rondhoek-leeuw-zandkleur-velvet-look", main_category:"geboortekaartjes-rondhoeken", category:"jongen", gender:"jongen"},
+  {id: "zwart-folie-geboortekaartje-jongen-broertje-silhouet-waterverf-blauw", main_category:"geboortekaartjes-folie-dubbelzijdig", category:"jongen", gender:"jongen"},
+  ]
+
+  let listThree = [
+  {id: "goudfolie-geboortekaartje-jongen-hip-groen-spetters-bladeren", main_category:"geboortekaartjes-folie-dubbelzijdig", category:"jongen", gender:"jongen"},
+  {id: "koperfolie-geboortekaartje-jongen-hip-jungle-olifant-planten", main_category:"geboortekaartjes-folie-enkelzijdig", category:"jongen", gender:"jongen"},
+  {id: "vierkant-geboortekaartje-rondhoek-leeuw-zandkleur-velvet-look", main_category:"geboortekaartjes-rondhoeken", category:"jongen", gender:"jongen"},
+  {id: "zwart-folie-geboortekaartje-jongen-broertje-silhouet-waterverf-blauw", main_category:"geboortekaartjes-folie-dubbelzijdig", category:"jongen", gender:"jongen"},
+  ]
+
+  let listFour = [
+  {id: "goudfolie-geboortekaartje-jongen-hip-groen-spetters-bladeren", main_category:"geboortekaartjes-folie-dubbelzijdig", category:"jongen", gender:"jongen"},
+  {id: "koperfolie-geboortekaartje-jongen-hip-jungle-olifant-planten", main_category:"geboortekaartjes-folie-enkelzijdig", category:"jongen", gender:"jongen"},
+  {id: "vierkant-geboortekaartje-rondhoek-leeuw-zandkleur-velvet-look", main_category:"geboortekaartjes-rondhoeken", category:"jongen", gender:"jongen"},
+  {id: "zwart-folie-geboortekaartje-jongen-broertje-silhouet-waterverf-blauw", main_category:"geboortekaartjes-folie-dubbelzijdig", category:"jongen", gender:"jongen"},
+  ]
+
+
+let listjongen1 = [{'id': 'watercolour-geboortekaartje-jongen-goudfolie-dinosaurier-sterren', 'main_category': 'babette-harms', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'avontuurlijk-echt-houten-geboortekaartje-dinosauriers-jongen', 'main_category': 'geboortekaartjes-hout', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'beige-geboortekaartje-koperfolie-panterprint', 'main_category': 'lovz', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'blauw-geboortekaartje-jongen-holografisch-hartje', 'main_category': 'made-for-moments', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'bruin-velvet-look-geboortekaartje-unisex-hartjes', 'main_category': 'june-and-berry', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'echt-houten-geboortekaartje-jongen-watercolour-takjes-hartjes', 'main_category': 'geboortekaartjes-hout', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'geboortekaartje-goudfolie-naam-zandkleur-leer-look-achtergrond', 'main_category': 'geboortekaartjes-folie-dubbelzijdig', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'geboortekaartje-jongen-broertje-silhouet-fiets-blauw-watercolour', 'main_category': 'jillejille', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'geboortekaartje-jongen-giraffe-schildpas-muis', 'main_category': 'bladergoud', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'geboortekaartje-jongen-koperfolie-leeuw-velvet-look-ronde-hoeken', 'main_category': 'geboortekaartjes-rondhoeken-folie-enkelzijdig', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'geboortekaartje-neutraal-initiaal-velvet-look', 'main_category': 'made-for-moments', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'getekend-geboortekaartje-jongen-dieren', 'main_category': 'bladergoud', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'goudfolie-fotokaart-origineel-ovaal-vorm', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'goudfolie-geboortekaartje-jongen-silhouet-olifant-jungle-blauw', 'main_category': 'geboortekaartjes-folie-enkelzijdig', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'goudfolie-geboortekaartje-silhouet-jongen-schommel', 'main_category': 'geboortekaartjes-folie-dubbelzijdig', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'groen-geboortekaartje-jongen-broertje-silhouet-goudfolie-hartjes', 'main_category': 'blijkaartje', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'groen-geboortekaartje-jongen-kalf-hartje', 'main_category': 'bintje', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'groen-geboortekaartje-lijntekening-leeuw-ballonnen', 'main_category': 'mijksje', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'groen-velvet-look-geboortekaartje-jongen-hartjes', 'main_category': 'june-and-berry', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'hip-minimalistisch-geboortekaartje-goudfolie', 'main_category': 'geboortekaartjes-folie-dubbelzijdig', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'holografisch-geboortekaartje-jongen-dinosaurus-silhouetje', 'main_category': 'anet-van-de-vorst', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'islamitisch-velvet-look-geboortekaartje-in-aarde-tinten-voor-jongen', 'main_category': 'geboortekaartjes-folie-dubbelzijdig', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'klassiek-geboortekaartje-jongen-teddybeer-goudfolie', 'main_category': 'made-for-moments', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'koperfolie-geboortekaartje-jongen-maan-luchtballon-vosje', 'main_category': 'geboortekaartjes-folie-dubbelzijdig', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'langwerpig-koperfolie-geboortekaartje-panterprintje-silhouetje', 'main_category': 'lovz', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'lief-geboortekaartje-jongen-silhouet-fiets-bloemen-vlieger', 'main_category': 'blijkaartje', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'lief-herfst-geboortekaartje-lijntekening-egeltje', 'main_category': 'mijksje', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'minimalistisch-groen-geboortekaartje-jongen-vogeltje', 'main_category': 'boefjespost', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'neutraal-velvet-look-geboortekaartje-goudfolie-echt-strikje', 'main_category': 'june-and-berry', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'origineel-geboortekaartje-stans-arch-jongen-koperfolie-regenboog', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'origineel-geboortekaartje-stans-cirkel-jongen-goudfolie-jungle-dieren', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'origineel-geboortekaartje-stans-cirkel-zwart-folie-jongen-stoer', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'origineel-geboortekaartje-stans-maan-unisex-geel-sterretjes-lief', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'origineel-geboortekaartje-stans-ovaal-jongen-sterrenhemel-goudfolie', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'origineel-geboortekaartje-stans-walvis-unisex-onderwaterwereld-blauw', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'origineel-rond-geboortekaartje-lijntekening-leeuw-goudfolie', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'rond-geboortekaartje-voetjes-color-blocking', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'stans-arch-origineel-geboortekaartje-jongen-goudfolie-zon-vogels', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'stans-rond-origineel-geboortekaartje-unisex-goudfolie-minimalistisch', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'stoer-geboortekaartje-dino-silhouetjes-typografie', 'main_category': 'kichinichi', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'stoer-geboortekaartje-jongen-teddy-look-beer-hartjes', 'main_category': 'made-for-moments', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'stoer-origineel-geboortekaartje-stans-cirkel-goudfolie-velvet-look', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'trendy-geboortekaartje-dino-silhoutetjes-goudfolie', 'main_category': 'bintje', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'unisex-geboortekaartje-groen-dinosaurier-hartjes', 'main_category': 'alma-langerak', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'velvet-geboortekaartje-jongen-goudfolie-groen', 'main_category': 'june-and-berry', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'vrolijk-geboortekaartje-jongen-dinosauriers-sterren', 'main_category': 'made-for-moments', 'category': 'jongen', 'gender': 'jongen'}]
+let listjongen2 = [{'id': 'watercolour-geboortekaartje-spetters-hartjes-jongen-blauw', 'main_category': 'made-for-moments', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'avontuurlijk-geboortekaartje-jongen-dinosauriers-groen', 'main_category': 'june-and-berry', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'blauw-geboortekaartje-jongen-beer-sterren', 'main_category': 'june-and-berry', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'blauw-geboortekaartje-jongen-watercolour-goudlook-spetters', 'main_category': 'zo-mooi', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'christelijk-rondhoek-geboortekaartje-houten-hartje', 'main_category': 'june-and-berry', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'geboortekaartje-bijzondere-vorm-luchtballon-blauw', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'geboortekaartje-goudfolie-unisex-minimalistisch-linnen-look', 'main_category': 'june-and-berry', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'geboortekaartje-jongen-dinosauriers-blauw-hartjes', 'main_category': 'boefjespost', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'geboortekaartje-jongen-goudfolie-dinosauriers-sterren', 'main_category': 'babette-harms', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'geboortekaartje-jongen-lichtblauwe-watercolour-goudfolie', 'main_category': 'june-and-berry', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'geboortekaartje-silhouetje-jongetje-knapzak-bos', 'main_category': 'blijkaartje', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'getekend-geboortekaartje-jongen-kalf-lief', 'main_category': 'bintje', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'goudfolie-geboortekaartje-goud-spetters', 'main_category': 'geboortekaartjes-folie-enkelzijdig', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'goudfolie-geboortekaartje-jongen-wiegje-grote-broer', 'main_category': 'blijkaartje', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'goudfolie-geboortekaartje-unisex-dinosauriers-silhouet', 'main_category': 'studio-poppy', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'groen-geboortekaartje-jongen-broertje-silhouet-hartjes-watercolour', 'main_category': 'blijkaartje', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'groen-geboortekaartje-jongen-met-doorkijkje-en-bakfiets-met-broer', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'groen-geboortekaartje-lijntekening-vos-jongen-linnen-look', 'main_category': 'zo-mooi', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'hip-geboortekaartje-met-beige-velvet-look-koperfolie-en-verfspetters', 'main_category': 'june-and-berry', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'hip-teddy-look-geboortekaartje-unisex', 'main_category': 'june-and-berry', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'holografisch-geboortekaartje-jongen-minimalistisch', 'main_category': 'june-and-berry', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'jungle-geboortekaartje-illustraties-aapjes-giraf', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'koperfolie-geboortekaartje-jongen-blauw-groen-color-blocking', 'main_category': 'huis-van-mijn', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'koperfolie-geboortekaartje-jongen-silhouetje-dino', 'main_category': 'blijkaartje', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'lief-christelijk-geboortekaartje-uitsnede-babyvoetjes-jongen', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'lief-geboortekaartje-uitgesneden-rondje-vosje', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'lief-koperfolie-geboortekaartje-vosjes-familie-jongen', 'main_category': 'geboortekaartjes-folie-dubbelzijdig', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'minimalistisch-liggend-geboortekaartje-mokka-kleur', 'main_category': 'june-and-berry', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'origineel-bruin-geboortekaartje-jongen-goudfolie-stans-arch-maan', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'origineel-geboortekaartje-stans-arch-koperfolie-lijntekening-olifant', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'origineel-geboortekaartje-stans-cirkel-jongen-goudfolie-stoer-tijger', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'origineel-geboortekaartje-stans-jongen-broertje-luchtballon-giraffen', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'origineel-geboortekaartje-stans-olifant-jongen-velvet-look-koperfolie', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'origineel-geboortekaartje-stans-ovaal-jongen-velvet-look-koperfolie', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'origineel-geboortekaartje-stans-wolk-jongen-velvet-look-goudfolie', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'origineel-unisex-geboortekaartje-stans-arch-beer', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'rondhoek-geboortekaartje-lijntekening-leeuw-bruin-velvetlook', 'main_category': 'geboortekaartjes-rondhoeken', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'stans-cirkel-origineel-geboortekaartje-goudfolie-jongen-velvet-look', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'stijlvol-geboortekaartje-wereldbol-sterrenhemel-broertje-goudfolie', 'main_category': 'zo-mooi', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'stoer-geboortekaartje-dinosauriers-hartjes-blauw', 'main_category': 'boefjespost', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'stoer-geboortekaartje-jongen-velvet-look-goudfolie-leeuw-blauw', 'main_category': 'zo-joann', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'stoer-unisex-geboortekaartje-goudfolie-beer-hartjes', 'main_category': 'made-for-moments', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'trendy-geboortekaartje-koperkleur-luchtballon-olifantje', 'main_category': 'little-spark-art', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'unisex-geboortekaartje-olifant-goudfolie-hartjes', 'main_category': 'kichinichi', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'velvet-look-geboortekaartje-jongen-goudfolie-dinosaurier-silhouet', 'main_category': 'june-and-berry', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'vrolijk-geboortekaartje-koperfolie-jungledieren', 'main_category': 'alma-langerak', 'category': 'jongen', 'gender': 'jongen'}]
+let listjongen3 = [{'id': 'watercolour-geboortekaartje-unisex-beer-sterren', 'main_category': 'june-and-berry', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'avontuurlijk-geboortekaartje-jongen-koperfolie-beer-hartjes', 'main_category': 'anet-van-de-vorst', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'blauw-geboortekaartje-jongen-dinosaurier-hartjes', 'main_category': 'alma-langerak', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'blauw-geboortekaartje-unisex-silhouet-dinosaurier', 'main_category': 'made-for-moments', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'color-blocking-geboortekaartje-hartje-jongen', 'main_category': 'june-and-berry', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'geboortekaartje-blauw-illustratie-teddybeer', 'main_category': 'little-spark-art', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'geboortekaartje-grijgroen-jongen-vogel-takje', 'main_category': 'anet-van-de-vorst', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'geboortekaartje-jongen-dinosauriers-groen-hartjes', 'main_category': 'boefjespost', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'geboortekaartje-jongen-goudfolie-velvet-look-groen-leeuw', 'main_category': 'zo-joann', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'geboortekaartje-jongen-regenboog-wolkjes-maan-sterren', 'main_category': 'mijksje', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'geboortekaartje-unieke-vorm-luchtballon-koperfolie', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'getekend-geboortekaartje-jongen-olifant-sterren', 'main_category': 'mijksje', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'goudfolie-geboortekaartje-groen-velvet-look-jongen-hartjes', 'main_category': 'made-for-moments', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'goudfolie-geboortekaartje-jongen-wiegje-grote-zus', 'main_category': 'blijkaartje', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'goudfolie-geboortekaartje-unisex-jungle-dieren-vrolijk', 'main_category': 'bladergoud', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'groen-geboortekaartje-jongen-getekend-jungle-dieren', 'main_category': 'june-and-berry', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'groen-geboortekaartje-jongen-silhouet-dinosaurier-sterren', 'main_category': 'boefjespost', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'groen-geboortekaartje-silhouet-dinosaurier-jongen', 'main_category': 'made-for-moments', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'hip-geboortekaartje-tweeling-unisex-maan', 'main_category': 'june-and-berry', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'holofolie-geboortekaartje-beertje-met-tekst', 'main_category': 'anet-van-de-vorst', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'holografisch-goudfolie-geboortekaartje-groen-jongen', 'main_category': 'made-for-moments', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'jungle-geboortekaartje-jongen-silhouet-leeuw-stoer', 'main_category': 'made-for-moments', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'koperfolie-geboortekaartje-jongen-blauw-velvet-look-hartjes', 'main_category': 'june-and-berry', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'koperfolie-geboortekaartje-jongen-velvet-look-schildpad-hartjes', 'main_category': 'zo-mooi', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'lief-geboortekaartje-dino-eitje', 'main_category': 'jillejille', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'lief-geboortekaartje-unisex-krans-bosdieren-hertje-eekhoorn', 'main_category': 'jillejille', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'lief-neutraal-geboortekaartje-handgetekend-beertje', 'main_category': 'anet-van-de-vorst', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'minimalistisch-panorama-geboortekaartje-mokka-kleur', 'main_category': 'june-and-berry', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'origineel-geboortekaartje-beren-groene-watercolour-luchtballon', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'origineel-geboortekaartje-stans-arch-unisex-goudfolie-spetters-zon', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'origineel-geboortekaartje-stans-cirkel-jongen-goudfolie-wereld', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'origineel-geboortekaartje-stans-jongen-color-blocking-ster', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'origineel-geboortekaartje-stans-olifant-unisex-goudfolie-stoer', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'origineel-geboortekaartje-stans-ovaal-koperfolie-jongen-watercolour', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'origineel-groen-watercolour-geboortekaartje-stans-silhouet-jongen', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'petrol-geboortekaartje-giraf-getekend', 'main_category': 'mijksje', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'schattig-geboortekaartje-jongen-drie-dinosaurussen', 'main_category': 'jillejille', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'stans-cirkel-origineel-geboortekaartje-unisex-jungle-dieren', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'stijlvol-goudfolie-geboortekaartje-watercolour-verfspetters', 'main_category': 'june-and-berry', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'stoer-geboortekaartje-jongen-blauwe-panterprint', 'main_category': 'lovz', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'stoer-geboortekaartje-velvet-look-groen-giraffe', 'main_category': 'blijkaartje', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'stoer-velvet-look-geboortekaartje-holografisch-foliedruk', 'main_category': 'june-and-berry', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'trendy-goudfolie-geboortekaartje-olifantje-groene-luchtballon', 'main_category': 'little-spark-art', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'unisex-geboortekaartje-velvet-look-bruin-hartjes', 'main_category': 'june-and-berry', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'vierkant-geboortekaartje-rondhoek-leeuw-zandkleur-velvet-look', 'main_category': 'geboortekaartjes-rondhoeken', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'vrolijk-stans-geboortekaartje-jongen-jungle-bladeren-leeuw', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}]
+let listjongen4 = [{'id': 'winter-geboortekaartje-illustratie-konijn-grote-letter', 'main_category': 'mijksje', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'avontuurlijk-goudfolie-geboortekaartje-jongen-panter', 'main_category': 'lovz', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'blauw-geboortekaartje-jongen-getekend-dinosaurier-landschap', 'main_category': 'studio-poppy', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'blauw-getekend-geboortekaartje-jongen-beer-sterren', 'main_category': 'june-and-berry', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'color-blocking-geboortekaartje-jongen-hartje', 'main_category': 'june-and-berry', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'geboortekaartje-blauw-sterrenhemel-koperfolie', 'main_category': 'boefjespost', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'geboortekaartje-illustratie-ooievaars-mandje', 'main_category': 'fientje-en-co', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'geboortekaartje-jongen-dinosauriers-hartjes-groen', 'main_category': 'boefjespost', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'geboortekaartje-jongen-groen-gestreept-goudfolie-maan-ronde-hoeken', 'main_category': 'geboortekaartjes-rondhoeken-folie-enkelzijdig', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'geboortekaartje-jongen-vrolijke-illustratie-dinos', 'main_category': 'made-for-moments', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'geboortekaartje-vlag-vorm-ooievaar-mand', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'getekend-geboortekaartje-jongen-olifanten-lijntekening-landschap', 'main_category': 'blijkaartje', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'goudfolie-geboortekaartje-jongen-ijsvogel-takjes', 'main_category': 'alma-langerak', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'goudfolie-geboortekaartje-lieve-lijntekening-vosje', 'main_category': 'mijksje', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'grijs-velvet-look-geboortekaartje-zwartfolie-jongen', 'main_category': 'june-and-berry', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'groen-geboortekaartje-jongen-goudfolie-velvet-look-bijtje', 'main_category': 'zo-joann', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'groen-geboortekaartje-jongen-silhouet-ronde-hoeken-watercolour', 'main_category': 'geboortekaartjes-rondhoeken', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'groen-getekend-geboortekaartje-vos-jongen', 'main_category': 'fientje-en-co', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'hip-geboortekaartje-velvet-look-goudfolie-verfspetters', 'main_category': 'june-and-berry', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'holografisch-geboortekaartje-jongen-blauw', 'main_category': 'made-for-moments', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'houten-geboortekaartje-schattige-illustratie-groene-dino', 'main_category': 'geboortekaartjes-hout', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'jungle-geboortekaartje-olifant-giraf-uitgesneden-rondje', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'koperfolie-geboortekaartje-jongen-bos-vos', 'main_category': 'made-for-moments', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'koperfolie-geboortekaartje-stoer-velvet-look', 'main_category': 'geboortekaartjes-folie-enkelzijdig', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'lief-geboortekaartje-illustratie-dino-goudfolie', 'main_category': 'little-spark-art', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'lief-geboortekaartje-vorm-teddybeer', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'lief-unisex-geboortekaartje-dinosaurier', 'main_category': 'made-for-moments', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'neutraal-geboortekaartje-lief-teddybeertje-hartjes', 'main_category': 'anet-van-de-vorst', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'origineel-geboortekaartje-stans-arch-goudfolie-getekend-beertje', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'origineel-geboortekaartje-stans-arch-zwart-folie-voetjes-jongen', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'origineel-geboortekaartje-stans-cirkel-unisex-goudfolie-olifant-jungle', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'origineel-geboortekaartje-stans-luchtballon-jongen-slingers-blauw', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'origineel-geboortekaartje-stans-ovaal-jongen-goudfolie-groen-initiaal', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'origineel-geboortekaartje-stans-ovaal-unisex-bruin-goudfolie', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'origineel-ovaal-geboortekaartje-blauwe-velvet-look-koperfolie', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'roestkleur-vintage-geboortekaartje-jungledieren-koperfolie', 'main_category': 'geboortekaartjes-folie-dubbelzijdig', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'schattig-vierkant-geboortekaartje-beertje', 'main_category': 'jillejille', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'stans-geboortekaartje-doorkijkje-unisex-leeuwtje-goudfolie', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'stijlvol-groen-geboortekaartje-jongen-goudfolie-rondhoek', 'main_category': 'june-and-berry', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'stoer-geboortekaartje-jongen-dinosaurier', 'main_category': 'jillejille', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'stoer-gestreept-geboortekaartje-jongen-goudfolie', 'main_category': 'alma-langerak', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'teddy-look-geboortekaartje-jongen', 'main_category': 'june-and-berry', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'trendy-goudfolie-maan-geboortekaartje-bergen-landschap', 'main_category': 'kichinichi', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'unisex-ovaal-geboortekaartje-color-blocking-strepen', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'vierkante-fotokaart-ronde-hoeken', 'main_category': 'june-and-berry', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'watercolour-geboortekaartje-jongen-dinosaurier-wieg-sterren', 'main_category': 'babette-harms', 'category': 'jongen', 'gender': 'jongen'}]
+let listjongen5 = [{'id': 'Goudfolie-geboortekaartje-tweeling-velvet-look-taupe', 'main_category': 'geboortekaartjes-folie-dubbelzijdig', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'avontuurlijk-groen-geboortekaartje-jongen-leeuw', 'main_category': 'mijksje', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'blauw-geboortekaartje-jongen-goudfolie-maan-sterren', 'main_category': 'babyjewels', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'bosdieren-geboortekaartje-jongen-met-doorkijkje-en-bakfiets-met-broer', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'donkerblauw-geboortekaartje-koperfolie-sterrenhemel', 'main_category': 'kichinichi', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'geboortekaartje-dinosauriers-jongen-blauw-hartjes', 'main_category': 'boefjespost', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'geboortekaartje-jongen-beer-sterretjes', 'main_category': 'june-and-berry', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'geboortekaartje-jongen-foto-heelal-vliegtuig', 'main_category': 'mijksje', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'geboortekaartje-jongen-initiaal-velvet-look-goudfolie', 'main_category': 'geboortekaartjes-folie-enkelzijdig', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'geboortekaartje-jongen-watercolour-dino-illustratie', 'main_category': 'little-spark-art', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'getekend-geboortekaartje-jongen-beertje-koperfolie', 'main_category': 'fientje-en-co', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'getekend-unisex-geboortekaartje-beer-hartjes', 'main_category': 'june-and-berry', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'goudfolie-geboortekaartje-jongen-silhouet-beer-maan-stoer', 'main_category': 'geboortekaartjes-folie-enkelzijdig', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'goudfolie-geboortekaartje-minimalistisch', 'main_category': 'geboortekaartjes-folie-dubbelzijdig', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'grijs-vintage-geboortekaartje-jungledieren-goudfolie', 'main_category': 'geboortekaartjes-folie-dubbelzijdig', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'groen-geboortekaartje-jongen-jungle-bladeren-giraffe', 'main_category': 'june-and-berry', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'groen-geboortekaartje-jongen-vosjes-takjes', 'main_category': 'mijksje', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'groen-unisex-geboortekaartje-dinosaurier-landschap', 'main_category': 'studio-poppy', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'hip-groen-geboortekaartje-getekende-dieren', 'main_category': 'anet-van-de-vorst', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'holografisch-geboortekaartje-jongen-dinosaurier', 'main_category': 'june-and-berry', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'islamitisch-geboortekaartje-velvet-look-koperfolie', 'main_category': 'june-and-berry', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'kerstkaart-vorm-kerstbal-foto-goudfolie', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'koperfolie-geboortekaartje-jongen-jungle-stoer', 'main_category': 'studio-poppy', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'koperfolie-geboortekaartje-unisex-uilen-lief', 'main_category': 'made-for-moments', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'lief-geboortekaartje-jongen-dinosaurier', 'main_category': 'made-for-moments', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'lief-groen-geboortekaartje-jongen-gansjes', 'main_category': 'blijkaartje', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'linnen-look-geboortekaartje-jongen-broertje-goudfolie-wereldbol', 'main_category': 'zo-mooi', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'neutraal-geboortekaartje-met-lief-teddybeertje-en-hartjes', 'main_category': 'anet-van-de-vorst', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'origineel-geboortekaartje-stans-arch-jongen-broer-silhouet-wereldbol', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'origineel-geboortekaartje-stans-beer-unisex-lief', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'origineel-geboortekaartje-stans-cirkel-velvet-look-jongen-goudfolie', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'origineel-geboortekaartje-stans-luchtballon-jongen-velvet-slingers', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'origineel-geboortekaartje-stans-ovaal-jongen-regenboog-stippen', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'origineel-geboortekaartje-stans-walvis-jongen-onderwaterwereld-blauw', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'origineel-ovaal-geboortekaartje-koperfolie-takjes', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'rond-geboortekaartje-jongen-lijntekening-vosje-schommel', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'silhouet-geboortekaartje-broertje-jungle-bladeren', 'main_category': 'jillejille', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'stans-geboortekaartje-jongen-goudoflie-doorkijkje-welp', 'main_category': 'geboortekaartjes-stans', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'stoer-geboortekaartje-blauw-giraffe-print-koperfolie', 'main_category': 'lovz', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'stoer-geboortekaartje-jongen-dinosaurier-sterren', 'main_category': 'made-for-moments', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'stoer-jungle-geboortekaartje-voor-tweeling-met-koperfolie-silhouetten', 'main_category': 'geboortekaartjes-folie-enkelzijdig', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'trendy-geboortekaartje-dino-illustraties-goudfolie', 'main_category': 'blijkaartje', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'trendy-koperfolie-geboortekaartje-loopfietsje-ronde-hoeken', 'main_category': 'little-spark-art', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'velvet--geboortekaartje-jongen-donkerblauw-goudfolie', 'main_category': 'june-and-berry', 'category': 'jongen', 'gender': 'jongen'}, {'id': 'vrolijk-geboortekaartje-dinosaurus-streepjes', 'main_category': 'kichinichi', 'category': 'jongen', 'gender': 'jongen'}]
+let listmeisje1 = [{'id': 'avontuurlijk-unisex-geboortekaartje-lijntekening-ijsbeer', 'main_category': 'zo-mooi', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'botanisch-geboortekaartje-meisje-goudfolie-watercolour-bloemen', 'main_category': 'geboortekaartjes-folie-dubbelzijdig', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'bruin-geboortekaartje-meisje-goudfolie-velvet-look-bijtje', 'main_category': 'zo-joann', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'echt-houten-geboortekaartje-meisje-dinosauriers', 'main_category': 'geboortekaartjes-hout', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'geboortekaartje-bruin-goudfolie-beertje', 'main_category': 'zo-joann', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'geboortekaartje-mandje-hertje-lente-bloemenveld', 'main_category': 'studio-poppy', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'geboortekaartje-meisje-goudfolie-geboortebloem-kamperfoelie', 'main_category': 'zo-mooi', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'geboortekaartje-meisje-koperfolie-luchtballon-vosje', 'main_category': 'geboortekaartjes-folie-dubbelzijdig', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'geboortekaartje-meisje-rosegoudfolie-gestreept-spetters-takje', 'main_category': 'geboortekaartjes-rondhoeken-folie-enkelzijdig', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'geboortekaartje-meisje-zusje-silhouetjes-bloemen-geel', 'main_category': 'blijkaartje', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'geboortekaartje-unisex-goudfolie-dinosauriers-silhouet', 'main_category': 'studio-poppy', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'gestreept-color-blocking-geboortekaartje-meisje-hartje', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'goudfolie-geboortekaartje-meisje-dinosaurier-watercolour-hartjes', 'main_category': 'babette-harms', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'groen-unisex-geboortekaartje-vogel-roodborstje-hartjes', 'main_category': 'alma-langerak', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'holografisch-geboortekaartje-meisje-paars-velvet-look', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'klassiek-geboortekaartje-echt-strikje-holografische-folie', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'klassiek-gestreept-geboortekaartje-meisje-echt-strikje', 'main_category': 'made-for-moments', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'kleurrijk-holografisch-geboortekaartje-meisje-rosegoudfolie', 'main_category': 'made-for-moments', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'koperfolie-geboortekaartje-meisje-ijsvogel-takjes', 'main_category': 'alma-langerak', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'koperfolie-geboortekaartje-silhouetje-dino-meisje', 'main_category': 'blijkaartje', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'lief-geboortekaartje-meisje-bloemencirkel', 'main_category': 'boefjespost', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'lief-geboortekaartje-meisje-strikje', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'lief-gestreept-geboortekaartje-meisje-silhouet-giraffen', 'main_category': 'bintje', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'lief-mintgroen-geboortekaartje-meisje-bloemencirkel', 'main_category': 'boefjespost', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'lila-geboortekaartje-panterprint-rosegoudfolie', 'main_category': 'lovz', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'minimalistisch-wit-geboortekaartje-holografische-folie', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-babykaartje-in-de-vorm-van-een-ovaal-met-organische-vormen', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-geboortekaartje-color-blocking-roze-blauw', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-geboortekaartje-stans-arch-meisje-koperfolie-zon-olifant', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-geboortekaartje-stans-bloem-patroon-meisje-rosegoudfolie', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-geboortekaartje-stans-meisje-holografisch-hartje', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-geboortekaartje-stans-ovaal-meisje-goudfolie-takjes-konijn', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-geboortekaartje-stans-ovaal-meisje-rosegoudfolie-organisch', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-geboortekaartje-stans-wolk-meisje-velvet-look-goudfolie', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-rosegoudfolie-geboortekaartje-stans-ovaal-meisje-bloemen', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'pastel-roze-geboortekaartje-met-watercolour-en-spetters-voor-meisje', 'main_category': 'made-for-moments', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'romantisch-koperfolie-geboortekaartje-meisje-wiegje-zusje', 'main_category': 'geboortekaartjes-folie-enkelzijdig', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'rosegoudfolie-geboortekaartje-meisje-landschap-regenboog', 'main_category': 'bladergoud', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'roze-geboortekaartje-goudfolie-zon', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'roze-geboortekaartje-meisje-jungle-dieren-getekend', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'roze-geboortekaartje-meisje-strikje', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'schattig-geboortekaartje-meisje-silhouet-watercolour-bloemen', 'main_category': 'jillejille', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'stans-bloem-origineel-geboortekaartje-meisje-roze-velvet-look-lief', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'stijlvol-droogbloemen-geboortekaartje-meisje', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'stijlvol-geboortekaartje-neutraal-hartje-goudfolie', 'main_category': 'geboortekaartjes-folie-enkelzijdig', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'trendy-bloemen-geboortekaartje-watercolour-goudfolie', 'main_category': 'lovz', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'trendy-gestreept-geboortekaartje-color-blocking-strepen', 'main_category': 'alma-langerak', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'uniek-geboortekaartje-bloementjes-patroon-goudfolie', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'uniek-roze-geboortekaartje-goudfolie-echt-strikje', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'watercolour-geboortekaartje-meisje-kleurrijk-bloemen', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}]
+let listmeisje2 = [{'id': 'Romantisch-geboortekaartje-rosegoudfolie-meisje-bloemen-krans', 'main_category': 'huis-van-mijn', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'color-blocking-geboortekaartje-meisje-bloemen', 'main_category': 'made-for-moments', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'floral-geboortekaartje-meisje-bloemen-koperfolie-hartje', 'main_category': 'made-for-moments', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'geboortekaartje-doorkijkje-bloem-stans-meisje', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'geboortekaartje-meisje-color-blocking-bloemen-goudfolie', 'main_category': 'little-spark-art', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'geboortekaartje-meisje-goudfolie-silhouet-olifant-hartjes-velvet-look', 'main_category': 'geboortekaartjes-folie-enkelzijdig', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'geboortekaartje-meisje-lijntekening-geboortebloem-lathyrus', 'main_category': 'zo-mooi', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'geboortekaartje-meisje-roze-gestreept-rosegoudfolie-hart-ronde-hoeken', 'main_category': 'geboortekaartjes-rondhoeken-dubbelzijdig-folie', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'geboortekaartje-pastel-geel-lila-appeltje', 'main_category': 'huis-van-mijn', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'geboortekaartje-unisex-koperfolie-hartje-stippen', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'getekend-geboortekaartje-unisex-beer-hartjes', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'goudfolie-geboortekaartje-meisje-zon', 'main_category': 'geboortekaartjes-folie-enkelzijdig', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'herfst-geboortekaartje-hertje-rosegoudfolie', 'main_category': 'bintje', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'hip-teddy-look-geboortekaartje-meisje', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'holografisch-geboortekaartje-unisex-minimalistisch', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'klassiek-geboortekaartje-goudfolie-echt-strikje', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'klassiek-oudroze-goudfolie-geboortekaartje-echt-strikje', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'koperfolie-geboortekaartje-meisje-roestbruin', 'main_category': 'geboortekaartjes-folie-enkelzijdig', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'koperfolie-geboortekaartje-unisex-teddy-look-beer', 'main_category': 'made-for-moments', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'lief-geboortekaartje-meisje-droogbloemen-achtergrond', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'lief-geboortekaartje-meisje-zusje-koperfolie-silhouet-watercolour-wieg', 'main_category': 'blijkaartje', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'lief-getekend-geboortekaartje-meisje-hert', 'main_category': 'mijksje', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'lief-rondhoek-geboortekaartje-rosegoudfolie-maantje', 'main_category': 'kichinichi', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'linnen-look-geboortekaartje-koperfolie-unisex-minimalistisch', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'minimalistisch-geboortekaartje-unisex-koperfolie', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'neutraal-geboortekaartje-gans-gezin-koperfolie', 'main_category': 'blijkaartje', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-color-blocking-geboortekaartje-stans-arch-meisje-bloem', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-geboortekaartje-meisje-stans-bloem-holografisch', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-geboortekaartje-stans-arch-meisje-regenboog-roze', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-geboortekaartje-stans-cirkel-bloemen-krans-goudfolie', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-geboortekaartje-stans-ovaal-goudfolie-bruin-golf', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-geboortekaartje-stans-ovaal-meisje-goudfolie-velvet-look', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-geboortekaartje-stans-ovaal-meisje-watercolour', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-goudfolie-geboortekaartje-stans-arch-meisje-zusje-silhouet', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-stans-geboortekaartje-meisje-color-blocking-stoer', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'romantisch-geboortekaartje-goudfolie-droogbloemen', 'main_category': 'little-spark-art', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'romantisch-roséfolie-geboortekaartje-met-bohemian-maantje', 'main_category': 'kichinichi', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'rosegoudfolie-geboortekaartje-meisje-wiegje-grote-broer', 'main_category': 'blijkaartje', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'roze-geboortekaartje-meisje-beer-sterren', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'roze-geboortekaartje-meisje-koperfolie-getekend-beertje', 'main_category': 'fientje-en-co', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'roze-geboortekaartje-vosjes-takjes-meisje', 'main_category': 'mijksje', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'silhouet-geboortekaartje-meisje-wiegje-grote-zus', 'main_category': 'blijkaartje', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'stans-cirkel-origineel-geboortekaartje-meisje-bloemen-roségoudfolie', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'stijlvol-geboortekaartje-aardetinten-giraffen-goudfolie', 'main_category': 'blijkaartje', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'stijlvol-goudfolie-geboortekaartje-meisje-watercolour-bloem', 'main_category': 'geboortekaartjes-folie-dubbelzijdig', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'trendy-geboortekaartje-lila-rode-color-blocking', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'trendy-oudroze-geboortekaartje-holografische-folie', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'uniek-geboortekaartje-stans-arch-meisje-goudfolie-geboortebloem', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'unisex-goudfolie-geboortekaartje-teddyberen', 'main_category': 'made-for-moments', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'watercolour-geboortekaartje-meisje-paars-goudfolie', 'main_category': 'studio-by-diede', 'category': 'meisje', 'gender': 'meisje'}]
+let listmeisje3 = [{'id': 'botanisch-geboortekaartje-meisje-kleurrijke-bloemen', 'main_category': 'made-for-moments', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'color-blocking-geboortekaartje-meisje-bloemen-illustraties', 'main_category': 'little-spark-art', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'foto-geboortekaartje-meisje-koperfolie-bloem', 'main_category': 'geboortekaartjes-folie-enkelzijdig', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'geboortekaartje-fotokaart-koperfolie-naam', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'geboortekaartje-meisje-dinosaurier-watercolour-goudfolie-sterren', 'main_category': 'babette-harms', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'geboortekaartje-meisje-goudfolie-veldbloemen-watercolour', 'main_category': 'geboortekaartjes-folie-enkelzijdig', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'geboortekaartje-meisje-lila-bloemen-print-rosegoudfolie', 'main_category': 'zo-joann', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'geboortekaartje-meisje-silhouet-sterretjes-wereldbol', 'main_category': 'jillejille', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'geboortekaartje-silhouetje-koperfolie-giraf-takjes', 'main_category': 'anet-van-de-vorst', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'geboortekaartje-unisex-lief-tekening-vos-vogel', 'main_category': 'blijkaartje', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'getekend-paars-geboortekaartje-meisje-bloem-lief', 'main_category': 'fientje-en-co', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'goudfolie-geboortekaartje-meisje-zusje-wereldbol-sterrenhemel', 'main_category': 'zo-mooi', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'hip-geboortekaartje-goudfolie-naam-maantje-meisje', 'main_category': 'geboortekaartjes-folie-dubbelzijdig', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'holografisch-geboortekaartje-meisje-goudfolie-kleurrijk', 'main_category': 'made-for-moments', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'holografisch-roze-geboortekaartje-goudfolie-meisje', 'main_category': 'made-for-moments', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'klassiek-geboortekaartje-meisje-teddybeer-rosegoudfolie', 'main_category': 'made-for-moments', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'kleurrijk-geboortekaartje-bloemenkrans-meisje-lief', 'main_category': 'zo-mooi', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'koperfolie-geboortekaartje-meisje-velvet-look-hartje', 'main_category': 'geboortekaartjes-folie-dubbelzijdig', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'koperfolie-geboortekaartje-zon-maan-organische-vormen', 'main_category': 'kichinichi', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'lief-geboortekaartje-meisje-dubbelzijdig-goudfolie-madeliefjes', 'main_category': 'huis-van-mijn', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'lief-geboortekaartje-silhouet-zus-derde-kindje-fiets-wereldbol-bloemen', 'main_category': 'jillejille', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'lief-getekend-geboortekaartje-meisje-jungle-dieren', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'lief-unisex-geboortekaartje-boerderij-dieren-getekend', 'main_category': 'made-for-moments', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'linnen-look-geboortekaartje-meisje-geboortebloem-iris-goudfolie', 'main_category': 'zo-mooi', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'minimalistisch-geboortekaartje-unisex-koperfolie-ronde-hoeken', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'neutraal-geboortekaartje-pentekening-beertje', 'main_category': 'zo-joann', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-color-blocking-geboortekaartje-stans-hartje-unisex', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-geboortekaartje-meisje-stans-bloem-vorm', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-geboortekaartje-stans-arch-meisje-roze-bloemen', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-geboortekaartje-stans-cirkel-meisje-zusje-koperfolie-hartjes', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-geboortekaartje-stans-ovaal-koperfolie-zwart-wit-bosdieren', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-geboortekaartje-stans-ovaal-meisje-koperfolie-hart', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-geboortekaartje-stans-regenboog-meisje-roze', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-geboortekaartje-stans-wolk-meisje-goudfolie-roze-hartjes', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-goudfolie-geboortekaartje-zon-spetters', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origneel-geboortekaartje-stans-cirkel-meisje-velvet-look-rosegoudfolie', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'romantisch-geboortekaartje-meisje-bloemen', 'main_category': 'blijkaartje', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'rosegoudfolie-geboortekaartje-meisje-wiegje-grote-zus', 'main_category': 'blijkaartje', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'roze-geboortekaartje-meisje-holografisch-hartje', 'main_category': 'made-for-moments', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'roze-geboortekaartje-meisje-originele-vorm-echt-strikje', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'roze-unisex-geboortekaartje-vogel-pimpelmees-hartjes', 'main_category': 'alma-langerak', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'silhouetje-geboortekaartje-meisje-wiegje-grote-broer', 'main_category': 'blijkaartje', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'stans-ovaal-origineel-geboortekaartje-meisje-color-blocking-maan-ster', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'stijlvol-geboortekaartje-bloemenkrans-rosegoudfolie', 'main_category': 'huis-van-mijn', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'stijlvol-goudfolie-geboortekaartje-watercolour-bloesem', 'main_category': 'anet-van-de-vorst', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'trendy-geboortekaartje-maan-goudfolie', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'trendy-regenboog-geboortekaartje-aardetinten-rosegoudfolie', 'main_category': 'lovz', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'uniek-geboortekaartje-stans-ovaal-meisje-geboortebloem-sneeuwklokje', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'velvet-geboortekaartje-meisje-rosegoud-hartje-bordeaux-rood', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'watercolour-geboortekaartje-meisje-spetters-ronde-hoeken-lief', 'main_category': 'made-for-moments', 'category': 'meisje', 'gender': 'meisje'}]
+let listmeisje4 = [{'id': 'botanisch-geboortekaartje-meisje-koperfolie-takjes', 'main_category': 'geboortekaartjes-folie-dubbelzijdig', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'color-blocking-geboortekaartje-meisje-vrolijk', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'fotokaart-ronde-hoeken-naam', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'geboortekaartje-lentethema-bloemen-vlindertjes-bijtjes', 'main_category': 'huis-van-mijn', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'geboortekaartje-meisje-droogbloemen', 'main_category': 'made-for-moments', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'geboortekaartje-meisje-goudfolie-watercolour-bloemen-takjes', 'main_category': 'geboortekaartjes-folie-dubbelzijdig', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'geboortekaartje-meisje-regenboog-wolkjes-maan-sterren', 'main_category': 'mijksje', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'geboortekaartje-meisje-silhouetje-bloem-koperfolie', 'main_category': 'anet-van-de-vorst', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'geboortekaartje-silhouetje-meisje-knapzak-bos', 'main_category': 'blijkaartje', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'geboortekaartje-wereldbol-silhouet-zusje-goudfolie', 'main_category': 'zo-mooi', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'getekend-unisex-geboortekaartje-bosdieren-initiaal', 'main_category': 'fientje-en-co', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'goudfolie-geboortekaartje-unisex-takjes-patroon-stof-look', 'main_category': 'geboortekaartjes-folie-enkelzijdig', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'hip-geboortekaartje-roestkleur-velvet-look-giraffen', 'main_category': 'blijkaartje', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'holografisch-geboortekaartje-meisje-hartje', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'jungle-geboortekaartje-arch-vorm-illustraties-dieren-auto', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'klassiek-geboortekaartje-meisje-voetjes-rosefolie', 'main_category': 'geboortekaartjes-folie-enkelzijdig', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'klassiek-geboortekaartje-oudroze-echt-strikje', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'koperfolie-geboortekaartje-meisje-velvet-look-leeuw-ronde-hoeken', 'main_category': 'geboortekaartjes-rondhoeken-folie-enkelzijdig', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'koperfolie-tweeling-geboortekaartje-lijntekening-hartjes', 'main_category': 'geboortekaartjes-folie-dubbelzijdig', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'lief-geboortekaartje-meisje-goudfolie-bloemen', 'main_category': 'made-for-moments', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'lief-geboortekaartje-teddybeer-neutraal', 'main_category': 'made-for-moments', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'lief-goudfolie-geboortekaartje-illustratie-gansje', 'main_category': 'little-spark-art', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'lila-geboortekaartje-doorkijkje-silhouetje-vlinder', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'linnen-look-geboortekaartje-unisex-maan-sterren-koperfolie', 'main_category': 'babyjewels', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'minimalistisch-langwerpig-geboortekaartje-vogeltje-meisje', 'main_category': 'boefjespost', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'neutraal-geboortekaartje-pentekening-boerderijdieren', 'main_category': 'anet-van-de-vorst', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-color-blocking-geboortekaartje-stans-meisje-bloem', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-geboortekaartje-stans-arch-initiaal-bomen-hertje-unisex', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-geboortekaartje-stans-arch-unisex-beer', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-geboortekaartje-stans-maan-meisje-rosegoudfolie-stoer', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-geboortekaartje-stans-ovaal-meisje-goudfolie-bloemen-lief', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-geboortekaartje-stans-ovaal-meisje-koperfolie-initiaal-roze', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-geboortekaartje-stans-walvis-meisje-onderwaterwereld-roze', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-paars-geboortekaartje-stans-cirkel-meisje-wieg', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'paars-geboortekaartje-meisje-zusje-wereldbol-goudfolie-silhouet', 'main_category': 'jillejille', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'romantisch-geboortekaartje-meisje-stans-bloem-takjes', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'rood-watercolour-geboortekaartje-meisje', 'main_category': 'studio-by-diede', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'rosegoudfolie-geboortekaartje-velvet-look-meisje-hartjes', 'main_category': 'made-for-moments', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'roze-geboortekaartje-meisje-holografisch-strikje', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'roze-geboortekaartje-meisje-rosegoudfolie-beer-hartjes', 'main_category': 'anet-van-de-vorst', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'roze-velvet-look-geboortekaartje-meisje-rosegoudfolie-hartjes', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'stans-arch-origineel-geboortekaartje-meisje-bloemen', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'stans-ovaal-origineel-geboortekaartje-meisje-goudfolie-geel-zon', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'stijlvol-geboortekaartje-goudfolie-unisex-marmer-look', 'main_category': 'zo-joann', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'stoer-geboortekaartje-silhouet-meisje-zusje', 'main_category': 'blijkaartje', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'trendy-geboortekaartje-oud-roze-velvet-look-goudfolie', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'trendy-roze-geboortekaartje-gouden-verfspetters-watercolour', 'main_category': 'lovz', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'uniek-ovaal-geboortekaartje-romantische-bloemen', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'velvet-look-geboortekaartje-meisje-geboortebloem-narcis-rosegoudfolie', 'main_category': 'zo-mooi', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'watercolour-geboortekaartje-meisje-uitgesneden-rondje-veldbloemen', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}]
+let listmeisje5 = [{'id': 'botanisch-geboortekaartje-meisje-rosefolie-trendkleur', 'main_category': 'geboortekaartjes-folie-enkelzijdig', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'echt-houten-geboortekaartje-meisje-bloemen', 'main_category': 'geboortekaartjes-hout', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'fotokaart-vierkant-naam-blok', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'geboortekaartje-lieve-illustratie-teddybeer', 'main_category': 'little-spark-art', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'geboortekaartje-meisje-goudfolie-bloemen-ronde-hoeken', 'main_category': 'geboortekaartjes-rondhoeken-dubbelzijdig-folie', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'geboortekaartje-meisje-illustratie-gans-goudfolie', 'main_category': 'blijkaartje', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'geboortekaartje-meisje-rosegoudfolie-bloemen-watercolour', 'main_category': 'geboortekaartjes-folie-enkelzijdig', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'geboortekaartje-meisje-silhouetje-schommel-boom', 'main_category': 'blijkaartje', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'geboortekaartje-tweeling-meisje-met-bloemen-en-roségoudfolie', 'main_category': 'geboortekaartjes-folie-enkelzijdig', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'geboortekaartje-zusje-silhouetjes-rosegoudfolie', 'main_category': 'geboortekaartjes-folie-enkelzijdig', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'goudfolie-geboortekaartje-illustratie-beren-zon', 'main_category': 'geboortekaartjes-folie-dubbelzijdig', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'goudfolie-geboortekaartje-zon-gouden-spetters', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'hip-roségoudfolie-geboortekaartje-getekende-dieren', 'main_category': 'anet-van-de-vorst', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'hip-roségoudfolie-geboortekaartje-met-velvet-look-en-spetters', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'holografisch-geboortekaartje-meisje-minimalistisch-lila', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'kerstkaart-first-christmas-foliedruk-doorkijkje-foto', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'koperfolie-geboortekaartje-meisje-hartje', 'main_category': 'geboortekaartjes-folie-enkelzijdig', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'koperfolie-geboortekaartje-oranje-panterprint', 'main_category': 'lovz', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'lief-geboortekaartje-meisje-bloemen-takjes-hertje', 'main_category': 'zo-mooi', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'lief-geboortekaartje-meisje-konijn-vogel-bijtjes', 'main_category': 'mijksje', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'lief-geboortekaartje-unisex-koperfolie-maan-hartjes', 'main_category': 'anet-van-de-vorst', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'lief-goudfolie-geboortekaartje-meisje-roze-velvet-look', 'main_category': 'geboortekaartjes-folie-enkelzijdig', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'lila-geboortekaartje-meisje-holografisch-hartje', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'luchtballon-geboortekaartje-meisje-olifantje-rosegoudfolie', 'main_category': 'little-spark-art', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'maan-geboortekaartje-roze-koperfolie', 'main_category': 'lovz', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'minimalistisch-lila-geboortekaartje-goudfolie', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'neutraal-origineel-geboortekaartje-velvet-look-goudfolie', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-geboortekaartje-bruine-watercolour-luchtballon-hertjes', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-geboortekaartje-stans-arch-meisje-koperfolie-mand-ballonnen', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-geboortekaartje-stans-bloem-goudfolie-roze-velvet-look', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-geboortekaartje-stans-meisje-color-blocking-vrolijk', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-geboortekaartje-stans-ovaal-meisje-goudfolie-hartje-roze', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-geboortekaartje-stans-ovaal-meisje-koperfolie-lief-bloemen', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'origineel-romantisch-geboortekaartje-meisje-bloemetjes', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'paars-watercolour-geboortekaartje-meisje-holografisch-spetters-hartjes', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'romantisch-geboortekaartje-silhouet-zusjes-fiets-wereldbol', 'main_category': 'jillejille', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'rond-geboortekaartje-letter-koperfolie-vlinders', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'rosegoudfolie-geboortekaartje-meisje-bruin-bloemenpatroon-stof-look', 'main_category': 'geboortekaartjes-folie-enkelzijdig', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'roségoufolie-geboortekaartje-meisje-watercolour-bloemen-hartjes', 'main_category': 'geboortekaartjes-folie-enkelzijdig', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'roze-geboortekaartje-meisje-illustratie-teddybeer', 'main_category': 'little-spark-art', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'roze-geboortekaartje-meisje-silhouet-bloemen-vogel', 'main_category': 'blijkaartje', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'schattig-geboortekaartje-meisje-illustratie-dinos', 'main_category': 'blijkaartje', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'stans-bloem-origineel-geboortekaartje-lief-meisje', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'stans-ovaal-origineel-geboortekaartje-meisje-rosegoudfolie-bloemen', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'stijlvol-geboortekaartje-holografisch-foliedruk-ronde-hoeken', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'stoer-paars-geboortekaartje-meisje-goudfolie', 'main_category': 'studio-by-diede', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'trendy-gestreept-geboortekaartje-color-blocking-goudfolie', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'trendy-roze-geboortekaartje-typografie-unieke-vorm', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'uniek-ovaal-islamitisch-geboortekaartje-goudfolie-zon', 'main_category': 'geboortekaartjes-stans', 'category': 'meisje', 'gender': 'meisje'}, {'id': 'velvet-look-geboortekaartje-meisje-holografisch-foliedruk', 'main_category': 'june-and-berry', 'category': 'meisje', 'gender': 'meisje'}]
+
+//   let options = [
+//   { href: "#", src: "/media/tinder_olivia01.png" },
+//   { href: "#", src: "/media/tinder_fulia.png" },
+//   { href: "#", src: "/media/tinder_lou.png" },
+//   { href: "#", src: "/media/tinder_riverr.png" }
+// ];
+// 
+
+// Get the "gender" query parameter from the URL
+const urlParams = new URLSearchParams(window.location.search);
+const gender = urlParams.get("gender");
+
+// Create a list of design lists based on the gender query parameter
+let designLists = [];
+if (gender === "jongen") {
+  designLists = [listjongen1, listjongen2, listjongen3, listjongen4, listjongen5];
+} else if (gender === "meisje") {
+  designLists = [listmeisje1, listmeisje2, listmeisje3, listmeisje4, listmeisje5];
+} else {
+  designLists = [listjongen1, listjongen2, listmeisje1, listmeisje2, listjongen3];
+}
+
+
+
+  const chosenOptions = []
+  // const lists = [listOne, listTwo, listThree, listFour];
+  const lists = createRandomLists(designLists);
+  const steps = lists.length;
+
+
+function createRandomLists(lists) {
+  const randomLists = [];
+  for (const list of lists) {
+    const randomList = [];
+    const numItems = Math.min(list.length, 4);
+    for (let i = 0; i < numItems; i++) {
+      const randomIndex = Math.floor(Math.random() * list.length);
+      const randomItem = list[randomIndex];
+      randomList.push(randomItem);
+      list.splice(randomIndex, 1);
+    }
+    randomLists.push(randomList);
+  }
+  return randomLists;
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  
+  const stepsWrapper = document.querySelector('.steps_wrapper');
+  const stepsForm = document.querySelector('#stepsForm');
+
+  let current_fs, next_fs, previous_fs;
+  let opacity;
+  let current = 1;
+  
+  setProgressBar(current);
+
+  const progressBar = document.querySelector('#progressbar'); 
+  
+//loop over the lists and make this 
+  let options = lists.map((o, i) => {
+
+    console.log(o, i)
+    let optionList = createOptions(o, i);
+    console.log(optionList);
+    stepsForm.appendChild(createFieldset(optionList))
+
+    let progressNumber = document.createElement('li')
+
+    if(i === 0){progressNumber.classList.add("active");}
+
+    progressBar.appendChild(progressNumber);
+
+    });
+
+  fieldsets = document.querySelectorAll("fieldset");
+
+  const nextStepBtns = document.querySelectorAll(".next_step");
+  nextStepBtns.forEach(nextBtn => {
+    nextBtn.addEventListener("click", function() {
+
+      current_fs = nextBtn.parentElement.parentElement;
+      next_fs = current_fs.nextElementSibling;
+
+      console.log(current_fs, next_fs)
+      
+      document.querySelectorAll("#progressbar li")[current].classList.add("active");
+      document.querySelectorAll("#progressbar li")[current-1].classList.add("Completed_step");
+      
+      next_fs.style.display = "block";
+      current_fs.style.display = "none";
+      current_fs.style.position = "relative";
+      next_fs.style.opacity = 1;
+      
+      // current_fs.animate({opacity: 0}, {
+      //   step: function(now) {
+      //     opacity = 1 - now;
+      //     console.log(next_fs,current_fs)
+      //     current_fs.style.display = "none";
+      //     current_fs.style.position = "relative";
+      //     console.log(next_fs,current_fs)
+          
+      //     next_fs.style.opacity = opacity;
+      //   },
+      //   duration: 500
+      // });
+
+      setProgressBar(++current);
+    });
+  });
+
+  getLocalCards();
+
+  const prevStepBtns = document.querySelectorAll(".previous_step");
+  prevStepBtns.forEach(function(element) {
+    element.addEventListener("click", function() {
+      let current_fs = this.parentElement.parentElement;
+      let previous_fs = this.parentElement.parentElement.previousElementSibling;
+      let active = document.querySelector(".active");
+      let completed = document.querySelectorAll(".Completed_step");
+
+      active.classList.remove("active");
+      completed[completed.length - 1].classList.remove("Completed_step");
+
+      previous_fs.style.display = "block";
+      current_fs.style.display = "none";
+      current_fs.style.position = "relative";
+      previous_fs.style.opacity = 1;
+
+      // current_fs.animate({ opacity: 0 }, {
+      //   step: function(now) {
+      //     let opacity = 1 - now;
+
+      //     current_fs.style.display = "none";
+      //     current_fs.style.position = "relative";
+      //     previous_fs.style.opacity = opacity;
+      //   },
+      //   duration: 500
+      // });
+
+      setProgressBar(--current);
+    });
+  });
+
+
+
+  document.querySelector("#last_step").addEventListener("click", () => {
+
+    document.querySelector(".steps_wrapper").style.display = "none";
+    document.querySelector(".loader_wrapper").style.display = "flex";
+    chosenCardsMap();
+
+    let ids = getLookalikeIds(chosenOptions)
+  .then((ids) => addCardsToWrapper(ids))
+  .catch((error) => console.log(error));
+
+  
+
+    setTimeout(() => {
+    document.querySelector(".loader_wrapper").style.display = "none";
+    document.querySelector(".kaarten_wrapper").style.display = "block";
+    document.querySelector(".banner_kaarten__content").style.display = "block";
+    document.querySelector(".mobile_banner_text").style.display = "none";
+
+    }, 3000);
+
+    window.addEventListener('beforeunload', function(event) {
+      event.preventDefault();
+      event.returnValue = 'Weet je zeker dat je deze pagina wil sluiten? De resultaten worden niet opgeslagen.';
+    });
+
+  });
+
+});
+
+async function getLocalCards(){
+  if (localStorage.getItem('cardsOnPage') != null)
+    {localCards = JSON.parse(localStorage.getItem('cardsOnPage'))}
+  else {
+      await fetch('/as_json?url='+window.location.pathname.replace('/','')).then(res =>         res.clone().json()).then(da => localStorage.setItem('cardsOnPage',    JSON.stringify(da[0])))
+    localCards = localStorage.getItem('cardsOnPage')
+    localCards = JSON.parse(localCards)
+      }
+}
+
+function createOptions(optionsList, i){
+  console.log(optionsList)
+  let options = [];
+
+  optionsList.forEach(item => {
+
+    image = `/_/shopimg/design/preview/${item.id}.480.p1.png`
+
+    let obj = {
+      href: "#",
+      src: image,
+      id: item.id,
+      category: item.category,
+      main_category: item.main_category,
+    };
+    options.push(obj);
+
+  });
+  console.log(options)
+  return [options, i]
+//for each item in list create an options list with href=#, src, id
+}
+
+function createFieldset(data){
+  let options = data[0];
+  let optionIndex = data[1];
+  let fieldset = document.createElement("fieldset");
+
+  let divWrapper = document.createElement("div");
+  divWrapper.className = "cols cols-eq-height sm-cols-spacing stepsCard_wrapper";
+  let inputNext = document.createElement("input");
+
+
+  options.forEach(option => {
+    let divOption = document.createElement("div");
+    divOption.className = "xs-6 sm-6 md-3 lg-3 my-2 my-md-3";
+    let a = document.createElement("a");
+    a.className = "card";
+    a.href = option.href;
+    a.setAttribute("data-id", options.id)
+
+    a.addEventListener("click", function(e) {
+      let activeCards = document.querySelectorAll(".activeCard");
+      let listId = optionIndex;
+      let itemId = option.id;
+      let itemCat = option.category
+      let itemMainCat = option.main_category
+      let existingOptionIndex = chosenOptions.findIndex(obj => obj.index === listId);
+      let nextButton = fieldset.querySelector('.next_step')
+
+      if (activeCards.length === 0) {
+
+        a.classList.add("activeCard");
+        chosenOptions.push({id: itemId, category: itemCat, main_category: itemMainCat, index: listId});
+        inputNext.style.display = 'block'
+
+      } else if (activeCards.length === 1 && activeCards[0] === a) {
+
+        a.classList.remove("activeCard");
+        chosenOptions.splice(existingOptionIndex, 1);
+        inputNext.style.display = 'none'
+
+      } else if (activeCards.length === 1 && activeCards[0] !== a) {
+
+        activeCards[0].classList.remove("activeCard");
+        a.classList.add("activeCard");
+        inputNext.style.display = 'block'
+
+        if (existingOptionIndex !== -1) {
+          chosenOptions.splice(existingOptionIndex, 1);
+        }
+        
+        chosenOptions.push({id: itemId, category: itemCat, main_category: itemMainCat, index: listId});
+      }
+      console.log(chosenOptions)
+
+      e.preventDefault();
+    });
+
+    let img = document.createElement("img");
+    img.alt = "x";
+    img.className = "card-img aspect-ratio-8";
+    img.loading = "lazy";
+    img.src = option.src;
+    img.setAttribute("data-id", options.id)
+    a.appendChild(img);
+    divOption.appendChild(a);
+    divWrapper.appendChild(divOption);
+  });
+
+  let divButtons = document.createElement("div");
+  divButtons.className = "stepsButtons";
+
+  let inputBack = document.createElement("input");
+  inputBack.className = "previous_step";
+  inputBack.name = "previous";
+  inputBack.type = "button";
+  inputBack.value = "Back";
+  inputNext.className = "next_step button button-default";
+  inputNext.name = "next";
+  inputNext.type = "button";
+  inputNext.value = "Next";
+  inputNext.style.display = "none";
+
+  if ((optionIndex+1) === steps){
+    inputNext.id = "last_step"
+  } 
+
+  divButtons.appendChild(inputBack);
+  divButtons.appendChild(inputNext);
+  fieldset.appendChild(divWrapper);
+  fieldset.appendChild(divButtons);
+  fieldset.setAttribute("data-index", optionIndex);
+
+  return fieldset;
+}
+
+const setProgressBar = (curStep) => {
+  let percent = parseFloat(100 / steps) * curStep;
+  percent = percent.toFixed();
+  $(".progress-bar")
+    .css("width", `${percent}%`);
+};
+
+async function chosenCardsMap(){
+
+  const chosenMapElement = document.querySelector('.chosen_maps');
+
+
+  chosenOptions.forEach(option => {
+
+    let chosenBox = document.createElement('div');
+    chosenBox.classList.add('chosenBox');
+    chosenBox.style.display = 'flex';
+    chosenBox.style.justifyContent = 'center';
+    let chosenLink = document.createElement('a');
+    chosenLink.href = `${option.main_category}/${option.category}/${option.id}`;
+    chosenLink.target = '_blank';
+    let chosenImage = document.createElement('img');
+    chosenImage.loading = 'lazy';
+    chosenImage.src = `/_/shopimg/design/preview/${option.id}.100.p1.png`;
+    chosenImage.style.maxHeight = '100%';
+    chosenImage.style.maxWidth = '100%'
+    chosenLink.appendChild(chosenImage);
+    chosenBox.appendChild(chosenLink);
+    chosenMapElement.appendChild(chosenBox);
+
+  })
+
+
+// <div class="chosenBox"><img alt="x" loading="lazy" src="/media/chosen_fulia.png" /></div>
+
+// <div class="chosenBox"><img alt="x" loading="lazy" src="/media/chosen_kris.png" /></div>
+
+// <div class="chosenBox"><img alt="x" loading="lazy" src="/media/chosen_sam.png" /></div>
+
+// <div class="chosenBox"><img alt="x" loading="lazy" src="/media/chosen_rosie.png" /></div> -->
+
+}
+
+
+async function getLookalikeIds(ids) {
+  const results = new Set();
+  const frequency = {};
+
+  for (let i = 0; i < ids.length; i++) {
+
+    try {
+      const id = ids[i].id;
+      console.log(id)
+      const lookalikeResult = await getLookalike(id);
+      const response = await lookalikeResult.json();
+
+      const topIds = response.result.slice(0, 30).map((result) => result.id);
+
+      topIds.forEach((topId) => {
+        results.add(topId);
+        frequency[topId] = (frequency[topId] || 0) + 1;
+      });
+    } catch (error) {
+      console.log(`Error getting lookalike for id ${id}: ${error}`);
+    }
+  }
+
+  const orderedResults = [];
+  const multipleOccurrences = Object.keys(frequency).filter((key) => frequency[key] > 1);
+
+  if (multipleOccurrences.length > 0) {
+    // Add all items that occur multiple times to the orderedResults array in order of frequency
+    multipleOccurrences.sort((a, b) => {
+      return frequency[b] - frequency[a];
+    });
+    orderedResults.push(...multipleOccurrences);
+  }
+
+  // Add all remaining items to the orderedResults array in random order
+  const remainingResults = [...results].filter((result) => !multipleOccurrences.includes(result));
+  shuffleArray(remainingResults);
+  orderedResults.push(...remainingResults);
+
+  return orderedResults;
+}
+
+async function getLookalike(id) {
+  const myHeaders = new Headers();
+  myHeaders.append(
+    "Authorization",
+    "34dsadfF$$%#$TGREGEFGE%Q*)(*&%"
+  );
+  myHeaders.append("Content-Type", "application/json");
+
+  const raw = JSON.stringify({
+    design_id: id,
+    shop_id: "hg",
+  });
+
+  const requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
+    redirect: "follow",
+    mode: "cors" // add this line to enable CORS
+
+  };
+
+  return await fetch("https://lookalike-api.abracadata.ai/look-a-like", requestOptions);
+}
+
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+   function toggleHeart(){
+ const heartIcons = document.querySelectorAll('i.fa-heart');
+
+heartIcons.forEach(heartIcon => {
+
+
+
+  heartIcon.addEventListener('click', saveUserDesign
+  // heartIcon.addEventListener('click', () => {
+  //   console.log('heart clicked');
+  //   if (heartIcon.classList.contains('far')) {
+  //     heartIcon.classList.remove('far');
+  //     heartIcon.classList.add('fas');
+  //   } else {
+  //     heartIcon.classList.remove('fas');
+  //     heartIcon.classList.add('far');
+  //   }
+  // });
+  // }
+
+);
+    })
+};
+
+// function saveUserDesign(e) {
+//   let el = e.target;
+
+//   if (el.classList.contains('far')) {
+//     let designUrl = new URL(e.target.parentNode.parentNode.querySelector('.card').href);
+//     const designId = designUrl.pathname.split('/').pop();
+
+//     if (is_logged_in) {
+//       var xhr = new XMLHttpRequest();
+//       xhr.open("GET", "/add_design_to_favorites?design_id=" + designId, true);
+//       xhr.onreadystatechange = function() {
+//         if (xhr.readyState == 4 && xhr.status == 200) {
+//           var response = xhr.responseText;
+//           if (response === 'OK') {
+//             console.log('added');
+//             updateFavoriteCount(parseInt(favoriteCountElement.textContent) + 1);
+//           }
+//         }
+//       };
+//       xhr.send();
+//       el.classList.remove('far');
+//       el.classList.add('fas');
+
+//       const label = document.createElement('label');
+//       label.innerText = 'Toegevoegd aan jouw eigen collectie';
+//       label.classList.add('added_to_wishlist');
+//       el.appendChild(label);
+//       label.style.display = 'block';
+//       setTimeout(function() {
+//         label.style.display = 'none';
+//       }, 1500);
+
+//     } else {
+//       var loginModal = bootstrap.Modal.getOrCreateInstance(document.getElementById("loginModal"));
+//       loginModal.show();
+//     }
+//   } else if (el.classList.contains('fas')) {
+//     let designUrl = new URL(e.target.parentNode.parentNode.querySelector('.card').href);
+//     const designId = designUrl.pathname.split('/').pop();
+
+//     if (is_logged_in) {
+//       var xhr = new XMLHttpRequest();
+//       xhr.open("GET", "/remove_design_from_favorites?design_id=" + designId, true);
+//       xhr.onreadystatechange = function() {
+//         if (xhr.readyState == 4 && xhr.status == 200) {
+//           var response = xhr.responseText;
+//           if (response === 'OK') {
+//             el.classList.remove('fas');
+//             el.classList.add('far');
+
+//             const label = el.querySelector('.added_to_wishlist');
+//             if (label) {
+//               label.parentNode.removeChild(label);
+//             }
+
+//             updateFavoriteCount(parseInt(favoriteCountElement.textContent) - 1);
+//           }
+//         }
+//       };
+//       xhr.send();
+//     } else {
+//       var loginModal = bootstrap.Modal.getOrCreateInstance(document.getElementById("loginModal"));
+//       loginModal.show();
+//     }
+//   }
+// }
+
+// Find the navigation bar group static menu container
+
+function saveUserDesign(e) {
+
+  let el = e.target;
+
+  if (el.classList.contains('far')) {
+
+// if (!document.querySelector('.save_user_design_added')) {
+    let designUrl = new URL(e.target.parentNode.parentNode.querySelector('.card').href);
+    // Get the last part of the path
+    const designId = designUrl.pathname.split('/').pop();
+    console.log(designId)
+    if (is_logged_in) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "/add_design_to_favorites?design_id=" + designId, true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var response = xhr.responseText;
+                console.log(response)
+                console.log(xhr)
+                if (response === 'OK') {
+                    console.log('added')
+                    // _favoritedesignModal.show();
+                    // changePopupAttr();
+                    // if (window._gaq) {
+                    //     window._gaq.push(["_trackEvent", "Favorieten", e]);
+                    //}
+                }
+            }
+        };
+        xhr.send();
+        el.classList.remove('far');
+        el.classList.add('fas');
+
+
+        const label = document.createElement('label');
+        label.innerText = 'Toegevoegd aan jouw eigen collectie';
+        label.classList.add('added_to_wishlist');
+          // Append the label below the heart icon
+        el.appendChild(label);
+        
+        // Show the label
+        label.style.display = 'block';
+        
+        // Hide the label after 2 seconds
+        setTimeout(function() {
+          label.style.display = 'none';
+        }, 1500);
+
+    } else {
+        var loginModal = bootstrap.Modal.getOrCreateInstance(document.getElementById("loginModal"));
+        loginModal.show();
+    }
+}
+    if (el.classList.contains('far')) {
+
+    // if (!document.querySelector('.save_user_design_added')) {
+        let designUrl = new URL(e.target.parentNode.parentNode.querySelector('.card').href);
+        // Get the last part of the path
+        const designId = designUrl.pathname.split('/').pop();
+        console.log(designId)
+        if (is_logged_in) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "/add_design_to_favorites?design_id=" + designId, true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var response = xhr.responseText;
+                    console.log(response)
+                    console.log(xhr)
+                    if (response === 'OK') {
+                        console.log('added');
+                        const countSpan = document.querySelector('.navigation-bar-heart-count');
+                        countSpan.textContent = parseInt(countSpan.textContent) + 1;
+
+                        const tooltip = document.querySelector('.navigation-bar-heart-tooltip');
+                        tooltip.style.display = 'flex';
+
+                        const overlayTooltip = document.querySelector('.tooltip-overlay');
+                        overlayTooltip.style.display = 'block';
+                        // _favoritedesignModal.show();
+                        // changePopupAttr();
+                        // if (window._gaq) {
+                        //     window._gaq.push(["_trackEvent", "Favorieten", e]);
+                        //}
+                    }
+                }
+            };
+            xhr.send();
+            el.classList.remove('far');
+            el.classList.add('fas');
+
+            const label = document.createElement('label');
+            label.innerText = 'Toegevoegd aan jouw eigen collectie';
+            label.classList.add('added_to_wishlist');
+              // Append the label below the heart icon
+            el.appendChild(label);
+            
+            // Show the label
+            label.style.display = 'block';
+            
+            // Hide the label after 2 seconds
+            setTimeout(function() {
+              label.style.display = 'none';
+            }, 1500);
+
+        } else {
+            var loginModal = bootstrap.Modal.getOrCreateInstance(document.getElementById("loginModal"));
+            loginModal.show();
+        }
+    }
+    else if (el.classList.contains('fas')) {
+
+    // if (!document.querySelector('.save_user_design_added')) {
+        let designUrl = new URL(e.target.parentNode.parentNode.querySelector('.card').href);
+        // Get the last part of the path
+        const designId = designUrl.pathname.split('/').pop();
+        console.log(designId)
+        if (is_logged_in) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("PUT", "/add_design_to_favorites?design_id=" + designId, true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var response = xhr.responseText;
+                    console.log(response)
+                    console.log(xhr)
+                    if (response === 'OK') {
+                        console.log('removed');
+                        const countSpan = document.querySelector('.navigation-bar-heart-count');
+                        countSpan.textContent = parseInt(countSpan.textContent) - 1;
+                        // _favoritedesignModal.show();
+                        // changePopupAttr();
+                        // if (window._gaq) {
+                        //     window._gaq.push(["_trackEvent", "Favorieten", e]);
+                        //}
+                    }
+                }
+            };
+            xhr.send();
+            el.classList.remove('fas');
+            el.classList.add('far');
+
+            const label = el.querySelector('.added_to_wishlist');
+            if (label) {
+            label.parentNode.removeChild(label);
+            }
+
+        } else {
+            var loginModal = bootstrap.Modal.getOrCreateInstance(document.getElementById("loginModal"));
+            loginModal.show();
+        }
+    }
+}
+
+function addCardsToWrapper(orderedResults) {
+  const productCardsWrapper = document.querySelector('.productCards_wrapper');
+
+  // Create the first card for "These cards suit you best!" section
+  const bestCard = document.createElement('div');
+  bestCard.className = 'xs-12 sm-12 md-3 lg-3 mt-3  my-md-2';
+  const bestCardLink = document.createElement('a');
+  bestCardLink.className = 'card p-4 pt-md-5 card_best';
+  const bestCardText = document.createElement('span');
+  bestCardText.className = 'card-text text-center';
+  const bestCardLabel = document.createElement('span');
+  bestCardLabel.className = 'card-label';
+  bestCardLabel.innerHTML = 'These cards suit you best!<br />';
+  bestCardText.appendChild(bestCardLabel);
+  const bestCardButtonGroup = document.createElement('span');
+  bestCardButtonGroup.className = 'button-group';
+  const bestCardButton = document.createElement('span');
+  bestCardButton.className = 'button card-button with-arrow bg-orange';
+  bestCardButtonGroup.appendChild(bestCardButton);
+  bestCardText.appendChild(bestCardButtonGroup);
+  bestCardLink.appendChild(bestCardText);
+  bestCard.appendChild(bestCardLink);
+  productCardsWrapper.appendChild(bestCard);
+
+  // Create cards for each result item
+  for (const item of orderedResults) {
+    const matchingLocalCard = localCards.find((localCard) => localCard.id === item);
+
+    if (matchingLocalCard) {
+      const card = document.createElement('div');
+      card.className = 'xs-6 sm-6 md-3 lg-3 my-2 card_relative';
+      if (productCardsWrapper.children.length === 1) {
+        card.classList.add('beating_heart');
+      }
+      const link = document.createElement('a');
+      link.className = 'card';
+      link.href = `/${matchingLocalCard.main_category_name}/${matchingLocalCard.category_name}/${matchingLocalCard.id}`;
+      link.target = '_blank'
+      const image = document.createElement('img');
+      image.className = 'card-img aspect-ratio-8';
+      image.setAttribute('alt', 'x');
+      image.setAttribute('loading', 'lazy');
+      image.setAttribute('src', `/_/shopimg/design/preview/${matchingLocalCard.id}.480.p1.png`);
+      link.appendChild(image);
+      card.appendChild(link);
+
+      const favoriteIcon = document.createElement('span');
+      favoriteIcon.className = 'fav_icon';
+      favoriteIcon.innerHTML = '<div class="tooltip-heart"></div><div class="heart"></div><i class="far fa-heart" aria-hidden="true"></i>';
+
+      card.insertBefore(favoriteIcon, card.firstChild);
+
+      productCardsWrapper.appendChild(card);
+
+      setTimeout(() => {
+      card.classList.add('stops');
+	  }, 5000);
+
+	  setTimeout(() => {
+      card.classList.add('stop');
+	  }, 8000);
+    }
+  }
+
+  toggleHeart();
+
+  // Create the last card for "repeat block" section
+  const last_card = document.createElement('div');
+  last_card.className = 'xs-12 sm-12 md-3 lg-3 mt-3  my-md-2';
+  const last_cardLink = document.createElement('a');
+  last_cardLink.className = 'card p-4 pt-md-5 card_best';
+  const last_cardText = document.createElement('span');
+  last_cardText.className = 'card-text text-center';
+  const last_cardLabel = document.createElement('span');
+  last_cardLabel.className = 'card-label mb-3';
+  last_cardLabel.innerHTML = 'Doe de kaarten wizard!!<br />';
+  last_cardText.appendChild(last_cardLabel);
+
+  //paragraph tag
+  const last_cardP = document.createElement('p');
+  last_cardP.className = 'card_text_sm';
+  last_cardP.innerHTML = 'Eindeloos zoeken hoeft niet meer! Binnen enkele klikken heb jij een selectie kaarten die het beste bij jou passen!';
+  last_cardText.appendChild(last_cardP);
+
+  const last_cardButtonGroup = document.createElement('span');
+  last_cardButtonGroup.className = 'button-group mt-0';
+  const last_cardButton = document.createElement('span');
+  last_cardButton.className = 'button card-button  bg-orange btn_repeat';
+  last_cardButton.innerHTML = '  <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">  <path d="M18.5013 6L19.4413 3.94L21.5013 3L19.4413 2.06L18.5013 0L17.5613 2.06L15.5013 3L17.5613 3.94L18.5013 6Z" fill="white"/> <path d="M7.00128 6L7.94128 3.94L10.0013 3L7.94128 2.06L7.00128 0L6.06128 2.06L4.00128 3L6.06128 3.94L7.00128 6Z" fill="white"/> <path d="M18.5013 11.5L17.5613 13.56L15.5013 14.5L17.5613 15.44L18.5013 17.5L19.4413 15.44L21.5013 14.5L19.4413 13.56L18.5013 11.5Z" fill="white"/> <path d="M16.2113 8.12L13.3813 5.29C13.1813 5.1 12.9313 5 12.6713 5C12.4113 5 12.1613 5.1 11.9613 5.29L0.791279 16.46C0.401279 16.85 0.401279 17.48 0.791279 17.87L3.62128 20.7C3.82128 20.9 4.07128 21 4.33128 21C4.59128 21 4.84128 20.9 5.04128 20.71L16.2113 9.54C16.6013 9.15 16.6013 8.51 16.2113 8.12ZM12.6713 7.42L14.0813 8.83L12.9113 10L11.5013 8.59L12.6713 7.42ZM4.33128 18.59L2.92128 17.18L10.0913 10L11.5013 11.41L4.33128 18.59Z" fill="white"/> </svg> Start de kaarten wizard ';
+
+  last_cardButtonGroup.appendChild(last_cardButton);
+  last_cardText.appendChild(last_cardButtonGroup);
+  last_cardLink.appendChild(last_cardText);
+  last_card.appendChild(last_cardLink);
+  productCardsWrapper.appendChild(last_card);
+}
+
+</script>
